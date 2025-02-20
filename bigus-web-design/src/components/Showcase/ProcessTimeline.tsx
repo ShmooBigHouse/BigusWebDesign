@@ -16,25 +16,6 @@ interface Component {
 const ProcessTimelineShowcase = () => {
   const [expandedComponent, setExpandedComponent] = useState<number | null>(null);
 
-  // Sample data for demos
-  const timelineSteps = [
-    {
-      title: "Discovery",
-      description: "Initial consultation to understand your needs and goals",
-      duration: "1-2 weeks"
-    },
-    {
-      title: "Planning",
-      description: "Developing project scope, timeline, and technical specifications",
-      duration: "1-2 weeks"
-    },
-    {
-      title: "Design",
-      description: "Creating wireframes and visual designs for your approval",
-      duration: "2-3 weeks"
-    }
-  ];
-
   const components: Component[] = [
     {
       title: "Minimal Timeline",
