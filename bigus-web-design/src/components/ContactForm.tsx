@@ -1,21 +1,28 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MessageSquare, Building2, ArrowRight } from 'lucide-react';
+import { Mail, Phone, MessageSquare, ArrowRight } from 'lucide-react';
 
-const ContactForm = () => {
-  const [formData, setFormData] = useState({
+interface FormData {
+  name: string;
+  email: string;
+  phone: string;
+  company: string;
+  projectType: string;
+  message: string;
+  preferredContact: 'email' | 'phone';
+}
+
+const ContactForm: React.FC = () => {
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     phone: '',
     company: '',
     projectType: '',
-    budget: '',
     message: '',
     preferredContact: 'email'
   });
 
-  const [selectedTimeframe, setSelectedTimeframe] = useState('');
-
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     // Handle form submission
@@ -33,7 +40,7 @@ const ContactForm = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 blur-3xl" />
           <div className="relative">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="text-white">Let's Bring Your Vision to </span>
+              <span className="text-white">Let&apos;s Bring Your Vision to </span>
               <span className="text-red-500 font-extrabold">Life</span>
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Calendar, User, Tag, Share2, MessageCircle, ArrowRight, Heart } from 'lucide-react';
+import Image from 'next/image';
+import { Calendar, User, Tag, Share2, MessageCircle, ArrowRight } from 'lucide-react';
 
 interface BlogPost {
   title: string;
@@ -112,11 +113,13 @@ export const MinimalBlog: React.FC = () => {
             </div>
 
             {/* Featured Image */}
-            <div className="mb-8 rounded-lg overflow-hidden">
-              <img 
-                src={post.featuredImage} 
+            <div className="relative mb-8 rounded-lg overflow-hidden h-[400px]">
+              <Image 
+                src={post.featuredImage}
                 alt={post.title}
-                className="w-full h-auto"
+                fill
+                className="object-cover"
+                priority
               />
             </div>
 
@@ -148,7 +151,7 @@ export const MinimalBlog: React.FC = () => {
                 <Share2 className="w-5 h-5 text-gray-600 group-hover:text-gray-900" />
               </button>
               <button className="p-3 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors group">
-                <Heart className="w-5 h-5 text-gray-600 group-hover:text-gray-900" />
+                <MessageCircle className="w-5 h-5 text-gray-600 group-hover:text-gray-900" />
               </button>
             </div>
 
@@ -179,11 +182,14 @@ export const MinimalBlog: React.FC = () => {
             {/* Author Bio */}
             <div className="bg-gray-50 p-6 rounded-lg">
               <div className="flex items-center gap-4 mb-4">
-                <img 
-                  src={post.author.avatar} 
-                  alt={post.author.name}
-                  className="w-16 h-16 rounded-full object-cover"
-                />
+                <div className="relative w-16 h-16">
+                  <Image 
+                    src={post.author.avatar}
+                    alt={post.author.name}
+                    fill
+                    className="rounded-full object-cover"
+                  />
+                </div>
                 <div>
                   <h3 className="font-semibold text-gray-900">{post.author.name}</h3>
                   <p className="text-sm text-gray-600">{post.author.bio}</p>
@@ -231,11 +237,14 @@ export const MinimalBlog: React.FC = () => {
                     key={index}
                     className="flex items-center gap-4 w-full hover:bg-gray-50 p-2 rounded-lg transition-colors group"
                   >
-                    <img 
-                      src={post.image} 
-                      alt={post.title}
-                      className="w-16 h-16 object-cover rounded-lg"
-                    />
+                    <div className="relative w-16 h-16">
+                      <Image 
+                        src={post.image}
+                        alt={post.title}
+                        fill
+                        className="rounded-lg object-cover"
+                      />
+                    </div>
                     <div className="flex-1 text-left">
                       <h4 className="text-gray-900 font-medium line-clamp-2">{post.title}</h4>
                       <p className="text-sm text-gray-500">{post.date}</p>
