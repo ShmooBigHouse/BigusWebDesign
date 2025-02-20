@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code, ClipboardCheck, LineChart, Rocket, Users, Zap, ChevronDown } from 'lucide-react';
+import { ClipboardCheck, LineChart, Rocket, Users, Zap, ChevronDown } from 'lucide-react';
 
 const ProcessSection = () => {
   const steps = [

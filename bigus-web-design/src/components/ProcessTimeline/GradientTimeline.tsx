@@ -7,13 +7,6 @@ interface Step {
   status?: 'completed' | 'in-progress' | 'upcoming';
 }
 
-interface TimelineProps {
-  title?: string;
-  subtitle?: string;
-  steps: Step[];
-  variant?: 'process' | 'timeline' | 'features';
-}
-
 const processSteps = [
   {
     title: "Account Setup",

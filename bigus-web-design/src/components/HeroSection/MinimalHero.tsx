@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 
 export const MinimalHero = () => {
@@ -36,15 +37,14 @@ export const MinimalHero = () => {
             <div className="aspect-square w-full max-w-md mx-auto bg-yellow-300 rounded-3xl p-8 
                           shadow-lg transform hover:rotate-2 transition-transform duration-300">
               <div className="relative w-full h-full">
-                <img 
-                  src="/HeartFace.png"
-                  alt="Hero"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'contain'
-                  }}
-                />
+              <Image 
+                src="/turtle.png"
+                alt="Hero"
+                width={400}
+                height={400}
+                className="w-full h-full object-contain"
+                priority
+              />
               </div>
             </div>
           </div>

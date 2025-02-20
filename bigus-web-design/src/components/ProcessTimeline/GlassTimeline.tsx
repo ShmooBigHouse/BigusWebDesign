@@ -2,14 +2,6 @@
 import React from 'react';
 import { Code, Palette, Shield } from 'lucide-react';
 
-interface Step {
-  title: string;
-  description: string;
-  duration?: string;
-  status?: 'completed' | 'in-progress' | 'upcoming';
-  icon?: React.ReactNode;
-}
-
 export const GlassTimeline: React.FC = () => {
   return (
     <div className="space-y-32">
