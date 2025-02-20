@@ -2,8 +2,15 @@
 import React, { useState } from 'react';
 import { Mail, Lock, Send, ArrowRight } from 'lucide-react';
 
+interface FormSubmitData {
+  name?: string;
+  email: string;
+  password?: string;
+  message?: string;
+}
+
 interface FormProps {
-  onSubmit?: (data: any) => void;
+  onSubmit?: (data: FormSubmitData) => void;
   className?: string;
 }
 
