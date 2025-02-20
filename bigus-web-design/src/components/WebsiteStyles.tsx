@@ -1,6 +1,7 @@
 // components/WebsiteStyles.tsx
 import React, { useState } from 'react';
 import { ChevronRight, ChevronLeft, ExternalLink } from 'lucide-react';
+import Image from 'next/image';
 
 const WebsiteStyles = () => {
   const [activeStyle, setActiveStyle] = useState(0);
@@ -73,11 +74,13 @@ const WebsiteStyles = () => {
         <div className="max-w-4xl mx-auto">
           {/* Preview Image */}
           <div className="relative aspect-video mb-8 rounded-xl overflow-hidden bg-gradient-to-br from-gray-900 to-black group">
-            <img 
-              src="/api/placeholder/800/450"
-              alt={style.name}
-              className="w-full h-full object-cover opacity-75 transition-transform duration-700 group-hover:scale-105"
-            />
+          <Image 
+            src="/api/placeholder/800/450"
+            alt={style.name}
+            width={800}
+            height={450}
+            className="w-full h-full object-cover opacity-75 transition-transform duration-700 group-hover:scale-105"
+          />
             <div className={`absolute inset-0 bg-gradient-to-r ${style.color} opacity-40`} />
           </div>
 

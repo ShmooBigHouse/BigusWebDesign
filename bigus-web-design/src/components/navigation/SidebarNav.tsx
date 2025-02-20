@@ -9,7 +9,6 @@ import {
   Bell, 
   HelpCircle,
   ChevronLeft,
-  Menu
 } from 'lucide-react';
 
 interface NavItem {

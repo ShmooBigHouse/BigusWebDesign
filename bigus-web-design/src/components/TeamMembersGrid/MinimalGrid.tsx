@@ -1,9 +1,6 @@
 import React from 'react';
+import Image from 'next/image';
 import { Linkedin, Twitter, Github, Globe } from 'lucide-react';
-
-interface SocialLink {
-  type: 'linkedin' | 'twitter' | 'github' | 'website';
-}
 
 const SocialIcon = ({ type }: { type: string }) => {
   switch (type) {
@@ -62,17 +59,16 @@ export const MinimalGrid: React.FC = () => {
             {members.map((member) => (
               <div key={member.name} className="group">
                 <div className="relative w-full h-64 mb-6 overflow-hidden">
-                  <img 
-                    src={member.imageSrc}
-                    alt={member.name}
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      objectPosition: 'center 20%'
-                    }}
-                    className="transform group-hover:scale-105 transition-transform duration-500"
-                  />
+                <Image 
+                  src={member.imageSrc}
+                  alt={member.name}
+                  width={400}
+                  height={400}
+                  className="w-full h-full object-cover"
+                  style={{
+                    objectPosition: 'center 20%'
+                  }}
+                />
                   <div className="absolute inset-0 bg-yellow-400/10 group-hover:bg-yellow-400/0 transition-colors duration-500"></div>
                 </div>
   
