@@ -1,5 +1,6 @@
 import React from 'react';
-import { Calendar, User, Tag, Share2, MessageCircle, ChevronRight, ArrowRight, Heart } from 'lucide-react';
+import Image from 'next/image';
+import { Calendar, User, Tag, Share2, MessageCircle, ArrowRight, Heart } from 'lucide-react';
 
 interface BlogPost {
   title: string;
@@ -118,11 +119,14 @@ export const GradientBlog: React.FC = () => {
 
                 {/* Featured Image */}
                 <div className="border-b border-white/10">
-                  <img 
-                    src={post.featuredImage} 
-                    alt={post.title}
-                    className="w-full h-auto"
-                  />
+                <Image 
+                src={post.featuredImage} 
+                alt={post.title}
+                width={800}
+                height={400}
+                className="w-full h-auto"
+                priority
+                />
                 </div>
 
                 {/* Content */}
@@ -199,11 +203,13 @@ export const GradientBlog: React.FC = () => {
                 <div className="flex items-start gap-4">
                   <div className="relative flex-shrink-0">
                     <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" />
-                    <img 
-                      src={post.author.avatar} 
-                      alt={post.author.name}
-                      className="relative w-16 h-16 rounded-full object-cover"
-                      style={{ aspectRatio: '1 / 1' }}
+                    <Image 
+                    src={post.author.avatar} 
+                    alt={post.author.name}
+                    width={160}
+                    height={160}
+                    className="relative w-16 h-16 rounded-full object-cover"
+                    style={{ aspectRatio: '1 / 1' }}
                     />
                   </div>
                   <div>
@@ -263,11 +269,13 @@ export const GradientBlog: React.FC = () => {
                     >
                       <div className="relative flex-shrink-0">
                         <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                        <img 
-                          src={post.image} 
-                          alt={post.title}
-                          className="relative w-16 h-16 object-cover rounded-xl"
-                          style={{ aspectRatio: '1 / 1' }}
+                        <Image 
+                        src={post.image} 
+                        alt={post.title}
+                        width={64}
+                        height={64}
+                        className="relative w-16 h-16 object-cover rounded-lg"
+                        style={{ aspectRatio: '1 / 1' }}
                         />
                       </div>
                       <div className="flex-1 text-left">

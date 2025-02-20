@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, User, Tag, Share2, MessageCircle, ChevronRight, ArrowRight, Heart } from 'lucide-react';
+import { Calendar, User, Tag, Share2, MessageCircle, ArrowRight, Heart } from 'lucide-react';
 
 interface BlogPost {
   title: string;

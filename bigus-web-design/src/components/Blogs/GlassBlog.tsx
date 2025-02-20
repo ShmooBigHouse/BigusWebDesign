@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { Calendar, User, Tag, Share2, MessageCircle, ArrowRight, Heart } from 'lucide-react';
 
 interface BlogPost {
@@ -123,10 +124,13 @@ export const GlassBlog: React.FC = () => {
             <div className="relative group mb-8">
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity" />
               <div className="relative rounded-2xl overflow-hidden border border-white/10">
-                <img 
-                  src={post.featuredImage} 
-                  alt={post.title}
-                  className="w-full h-auto"
+              <Image 
+                src={post.featuredImage} 
+                alt={post.title}
+                width={800}
+                height={400}
+                className="w-full h-auto"
+                priority
                 />
               </div>
             </div>
@@ -198,11 +202,13 @@ export const GlassBlog: React.FC = () => {
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity" />
               <div className="relative bg-white/5 backdrop-blur-xl p-6 rounded-2xl border border-white/10">
                 <div className="flex items-center gap-4">
-                  <img 
+                <Image 
                     src={post.author.avatar} 
                     alt={post.author.name}
-                    className="w-16 h-16 rounded-full object-cover"
-                  />
+                    width={64}
+                    height={64}
+                    className="w-16 h-16 object-cover rounded-lg"
+                    />
                   <div>
                     <h3 className="font-semibold text-white">{post.author.name}</h3>
                     <p className="text-sm text-blue-200">{post.author.bio}</p>
@@ -259,11 +265,14 @@ export const GlassBlog: React.FC = () => {
                       key={index}
                       className="flex items-center gap-4 w-full hover:bg-white/10 p-2 rounded-lg transition-colors group"
                     >
-                      <img 
+                      <Image 
                         src={post.image} 
                         alt={post.title}
-                        className="w-16 h-16 object-cover rounded-lg border border-white/10"
-                      />
+                        width={64}
+                        height={64}
+                        className="w-16 h-16 object-cover rounded-lg"
+                        style={{ aspectRatio: '1 / 1' }}
+                        />
                       <div className="flex-1 text-left">
                         <h4 className="text-white font-medium line-clamp-2">{post.title}</h4>
                         <p className="text-sm text-blue-200">{post.date}</p>
