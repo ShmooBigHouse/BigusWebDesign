@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { LayoutGrid, ExternalLink, ArrowRight, Code, Palette, Shield, Zap } from 'lucide-react';
+import { LayoutGrid, ExternalLink, ArrowRight, Code, Palette, Shield } from 'lucide-react';
 import {
   MinimalCards,
   GradientCards,

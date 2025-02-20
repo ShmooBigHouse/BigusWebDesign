@@ -23,7 +23,7 @@ const FormsShowcase = () => {
   const [expandedComponent, setExpandedComponent] = useState<number | null>(null);
 
   // Mock form submission handler
-  const handleSubmit = (data: any) => {
+  const handleSubmit = (data: { email: string; password?: string; message?: string }) => {
     console.log('Form submitted:', data);
   };
 

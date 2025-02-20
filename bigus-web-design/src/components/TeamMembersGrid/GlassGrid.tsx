@@ -1,9 +1,6 @@
 import React from 'react';
+import Image from 'next/image';
 import { Linkedin, Twitter, Github, Globe } from 'lucide-react';
-
-interface SocialLink {
-  type: 'linkedin' | 'twitter' | 'github' | 'website';
-}
 
 const SocialIcon = ({ type }: { type: string }) => {
   switch (type) {
@@ -74,16 +71,15 @@ export const GlassGrid: React.FC = () => {
                   <div className="relative rounded-2xl overflow-hidden bg-white/5 backdrop-blur-lg border border-white/10 hover:border-white/20 transition-all">
                     <div className="relative h-64 overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10" />
-                      <img 
+                      <Image 
                         src={member.imageSrc}
                         alt={member.name}
+                        width={400}
+                        height={400}
+                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                         style={{
-                          width: '100%',
-                          height: '100%',
-                          objectFit: 'cover',
                           objectPosition: 'center 20%'
                         }}
-                        className="transform group-hover:scale-105 transition-transform duration-700"
                       />
                       
                       <div className="absolute inset-x-0 bottom-0 p-6 z-20">

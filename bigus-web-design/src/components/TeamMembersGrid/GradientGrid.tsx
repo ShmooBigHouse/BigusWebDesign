@@ -1,9 +1,6 @@
 import React from 'react';
+import Image from 'next/image';
 import { Linkedin, Twitter, Github, Globe } from 'lucide-react';
-
-interface SocialLink {
-  type: 'linkedin' | 'twitter' | 'github' | 'website';
-}
 
 const SocialIcon = ({ type }: { type: string }) => {
   switch (type) {
@@ -61,13 +58,13 @@ export const GradientGrid: React.FC = () => {
         {members.map((member) => (
           <div key={member.name} className="bg-white rounded-3xl p-8 shadow-lg shadow-purple-100">
             <div className="relative w-full h-64 mb-6">
-              <img 
+            <Image 
                 src={member.imageSrc}
                 alt={member.name}
+                width={400}
+                height={400}
+                className="w-full h-full object-cover"
                 style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
                   objectPosition: 'center 20%'
                 }}
               />
