@@ -32,21 +32,6 @@ const ProcessTimelineShowcase = () => {
       title: "Design",
       description: "Creating wireframes and visual designs for your approval",
       duration: "2-3 weeks"
-    },
-    {
-      title: "Development",
-      description: "Building your website with attention to detail and quality",
-      duration: "4-6 weeks"
-    },
-    {
-      title: "Testing",
-      description: "Thorough testing and refinement of all features",
-      duration: "1-2 weeks"
-    },
-    {
-      title: "Launch",
-      description: "Final review and deployment of your website",
-      duration: "1 week"
     }
   ];
 
@@ -55,37 +40,19 @@ const ProcessTimelineShowcase = () => {
       title: "Minimal Timeline",
       description: "Clean, straightforward timeline with clear progression",
       preview: "Perfect for business processes",
-      component: (
-        <MinimalTimeline
-          title="Our Process"
-          subtitle="How we bring your vision to life"
-          steps={timelineSteps}
-        />
-      )
+      component: <MinimalTimeline />
     },
     {
       title: "Gradient Timeline",
       description: "Modern timeline with gradient effects and transitions",
       preview: "Great for creative workflows",
-      component: (
-        <GradientTimeline
-          title="Project Timeline"
-          subtitle="Your journey from concept to completion"
-          steps={timelineSteps}
-        />
-      )
+      component: <GradientTimeline />
     },
     {
       title: "Glass Timeline",
       description: "Sophisticated timeline with glass morphism effects",
       preview: "Perfect for premium services",
-      component: (
-        <GlassTimeline
-          title="Development Process"
-          subtitle="Our step-by-step approach to success"
-          steps={timelineSteps}
-        />
-      )
+      component: <GlassTimeline />
     }
   ];
 
@@ -105,7 +72,7 @@ const ProcessTimelineShowcase = () => {
         <div className="grid md:grid-cols-3 gap-4 p-6">
           {components.map((component, index) => (
             <button
-              key={index}
+              key={`component-${index}`}
               onClick={() => setExpandedComponent(index)}
               className="group relative overflow-hidden rounded-xl border border-white/10 bg-black/40 hover:border-blue-500/50 transition-all duration-300 p-6 text-left"
             >
