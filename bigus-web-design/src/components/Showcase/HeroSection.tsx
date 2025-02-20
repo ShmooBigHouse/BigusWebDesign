@@ -16,31 +16,30 @@ interface Component {
 const HeroSectionShowcase = () => {
   const [expandedComponent, setExpandedComponent] = useState<number | null>(null);
 
-  // Sample data for demos
-  
   const components: Component[] = [
     {
       title: "Minimal Hero",
       description: "Clean, simple hero section with clear call-to-actions",
       preview: "Perfect for business websites",
-      component: (
-        <MinimalHero />
-      )
+      component: <MinimalHero />
     },
     {
       title: "Gradient Hero",
       description: "Eye-catching hero with gradient effects and animations",
       preview: "Great for modern startups",
-      component: (
-        <GradientHero />
-      )
+      component: <GradientHero />
     },
     {
       title: "Glass Hero",
       description: "Modern glass morphism hero with blur effects",
       preview: "Perfect for dark themes",
       component: (
-        <GlassHero />
+        <GlassHero 
+          title="Build Something Amazing"
+          subtitle="Create stunning websites with our modern components and design systems."
+          primaryCTA={{ text: "Get Started", href: "#" }}
+          secondaryCTA={{ text: "Learn More", href: "#" }}
+        />
       )
     }
   ];
@@ -61,7 +60,7 @@ const HeroSectionShowcase = () => {
         <div className="grid md:grid-cols-3 gap-4 p-6">
           {components.map((component, index) => (
             <button
-              key={index}
+              key={`component-${index}`}
               onClick={() => setExpandedComponent(index)}
               className="group relative overflow-hidden rounded-xl border border-white/10 bg-black/40 hover:border-blue-500/50 transition-all duration-300 p-6 text-left"
             >
