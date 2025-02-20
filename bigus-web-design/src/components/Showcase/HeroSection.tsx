@@ -17,21 +17,14 @@ const HeroSectionShowcase = () => {
   const [expandedComponent, setExpandedComponent] = useState<number | null>(null);
 
   // Sample data for demos
-  const heroContent = {
-    title: "Build Something Amazing",
-    subtitle: "Create stunning websites with our modern components and design systems. Fully customizable and built with React & Tailwind CSS.",
-    primaryCTA: { text: "Get Started", href: "#" },
-    secondaryCTA: { text: "Learn More", href: "#" },
-    imageSrc: "/api/placeholder/600/400"
-  };
-
+  
   const components: Component[] = [
     {
       title: "Minimal Hero",
       description: "Clean, simple hero section with clear call-to-actions",
       preview: "Perfect for business websites",
       component: (
-        <MinimalHero {...heroContent} />
+        <MinimalHero />
       )
     },
     {
@@ -39,7 +32,7 @@ const HeroSectionShowcase = () => {
       description: "Eye-catching hero with gradient effects and animations",
       preview: "Great for modern startups",
       component: (
-        <GradientHero {...heroContent} />
+        <GradientHero />
       )
     },
     {
@@ -47,7 +40,7 @@ const HeroSectionShowcase = () => {
       description: "Modern glass morphism hero with blur effects",
       preview: "Perfect for dark themes",
       component: (
-        <GlassHero {...heroContent} />
+        <GlassHero />
       )
     }
   ];
