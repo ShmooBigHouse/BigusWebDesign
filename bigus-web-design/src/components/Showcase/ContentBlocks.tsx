@@ -63,9 +63,9 @@ const ContentBlocksShowcase = () => {
       description: "Clean, professional content blocks with white backgrounds",
       preview: "Perfect for business websites",
       components: [
-        <ModernFeatureGrid features={features} />,
-        <ModernTestimonial testimonials={testimonials} />,
-        <ModernTextBlock {...textContent} />
+        <ModernFeatureGrid key="modern-feature" features={features} />,
+        <ModernTestimonial key="modern-testimonial" testimonials={testimonials} />,
+        <ModernTextBlock key="modern-text" {...textContent} />
       ]
     },
     {
@@ -73,9 +73,9 @@ const ContentBlocksShowcase = () => {
       description: "Eye-catching gradient backgrounds with dynamic colors",
       preview: "Great for landing pages",
       components: [
-        <GradientFeatureGrid features={features} />,
-        <GradientTestimonial testimonials={testimonials} />,
-        <GradientTextBlock {...textContent} />
+        <GradientFeatureGrid key="gradient-feature" features={features} />,
+        <GradientTestimonial key="gradient-testimonial" testimonials={testimonials} />,
+        <GradientTextBlock key="gradient-text" {...textContent} />
       ]
     },
     {
@@ -83,9 +83,9 @@ const ContentBlocksShowcase = () => {
       description: "Modern glass morphism effect with blur backgrounds",
       preview: "Perfect for dark themes",
       components: [
-        <GlassFeatureGrid features={features} />,
-        <GlassTestimonial testimonials={testimonials} />,
-        <GlassTextBlock {...textContent} />
+        <GlassFeatureGrid key="glass-feature" features={features} />,
+        <GlassTestimonial key="glass-testimonial" testimonials={testimonials} />,
+        <GlassTextBlock key="glass-text" {...textContent} />
       ]
     }
   ];
@@ -106,7 +106,7 @@ const ContentBlocksShowcase = () => {
         <div className="grid md:grid-cols-3 gap-4 p-6">
           {components.map((component, index) => (
             <button
-              key={index}
+              key={`component-${index}`}
               onClick={() => setExpandedComponent(index)}
               className="group relative overflow-hidden rounded-xl border border-white/10 bg-black/40 hover:border-blue-500/50 transition-all duration-300 p-6 text-left"
             >
@@ -149,7 +149,7 @@ const ContentBlocksShowcase = () => {
             </div>
             <div className="space-y-12">
               {components[expandedComponent].components.map((block, index) => (
-                <div key={index} className="bg-black/20 rounded-lg border border-white/10 overflow-hidden">
+                <div key={`content-block-${index}`} className="bg-black/20 rounded-lg border border-white/10 overflow-hidden">
                   <div className="p-6">
                     {block}
                   </div>

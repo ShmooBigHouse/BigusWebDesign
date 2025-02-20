@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 
 export const GlassShowcase = () => {
   const projects = [
@@ -46,16 +47,13 @@ export const GlassShowcase = () => {
           >
             {/* Image Container */}
             <div className="relative aspect-[4/3] w-full overflow-hidden bg-white p-8">
-              <img 
-                src={project.imageSrc}
-                alt={project.title}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover'
-                }}
-                className="transform group-hover:scale-110 transition-transform duration-500"
-              />
+            <Image 
+              src={project.imageSrc}
+              alt={project.title}
+              width={800}
+              height={600}
+              className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+            />
             </div>
 
             {/* Content */}

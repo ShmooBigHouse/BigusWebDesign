@@ -1,15 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
-interface Service {
-  title: string;
-  price: string;
-  description: string;
-  features: string[];
-  ctaText: string;
-  popular?: boolean;
-}
-
 export const MinimalCards = () => {
   const services = [
     {

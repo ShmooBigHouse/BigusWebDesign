@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 export const MinimalShowcase = () => {
   const projects = [
@@ -29,15 +30,13 @@ export const MinimalShowcase = () => {
           <div key={index} className="flex flex-col items-center">
             {/* Image Box - Using same structure as working hero sections */}
             <div className="relative w-full h-64">
-              <img 
-                src={project.imageSrc}
-                alt={project.title}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover'
-                }}
-              />
+            <Image 
+              src={project.imageSrc}
+              alt={project.title}
+              width={800}
+              height={600}
+              className="w-full h-full object-cover"
+            />
             </div>
             
             {/* Text Content */}

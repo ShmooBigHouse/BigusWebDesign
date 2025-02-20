@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 export const GradientShowcase = () => {
   const projects = [
@@ -40,15 +41,18 @@ export const GradientShowcase = () => {
             {/* Image Box */}
             <div className="bg-white rounded-3xl p-12 shadow-lg shadow-purple-100">
               <div className="relative h-96 flex items-center justify-center">
-                <img 
-                  src={project.imageSrc}
-                  alt={project.title}
-                  style={{
-                    maxWidth: '100%',
-                    maxHeight: '100%',
-                    objectFit: 'contain'
-                  }}
-                />
+              <Image 
+                src={project.imageSrc}
+                alt={project.title}
+                width={800}
+                height={600}
+                className="w-full h-full object-cover"
+                style={{
+                  maxWidth: '100%',
+                  maxHeight: '100%',
+                  objectFit: 'contain'
+                }}
+              />
               </div>
             </div>
 

@@ -1,13 +1,12 @@
 import React from 'react';
 
-interface Step {
-  title: string;
-  description: string;
-  duration?: string;
-  status?: 'completed' | 'in-progress' | 'upcoming';
+interface TimelineProps {
+  title?: string;
+  subtitle?: string;
+  variant?: 'process' | 'timeline' | 'features';
 }
 
-const processSteps = [
+const steps = [
   {
     title: "Account Setup",
     description: "Create your account and set basic preferences",
