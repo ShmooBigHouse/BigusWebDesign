@@ -1,5 +1,6 @@
 // components/ContentBlocks/GlassBlocks.tsx
 import React from 'react';
+import Image from 'next/image';
 import { Code, Palette, Shield, Quote } from 'lucide-react';
 
 // Types
@@ -99,10 +100,12 @@ export const GlassTestimonial: React.FC<{ testimonials: Testimonial[] }> = ({
                   
                   {/* Image Container */}
                   <div className="relative w-32 h-32 mb-4">
-                    <img
+                  <Image 
                       src="/lioncolor.png"
                       alt={testimonial.author}
-                      className="w-full h-full object-cover rounded-lg transform group-hover:scale-105 transition-transform duration-500"
+                      width={300}
+                      height={300}
+                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                     />
                     <Quote className="absolute -bottom-2 -right-2 w-8 h-8 text-white/40" />
                   </div>

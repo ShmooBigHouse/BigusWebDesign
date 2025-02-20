@@ -1,13 +1,13 @@
 // components/Footer.tsx
 import React from 'react';
 import Link from 'next/link';
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, MapPin, Github, Linkedin, Twitter } from 'lucide-react';
 
 const Footer = () => {
   return (
     <footer className="bg-slate-900 border-t border-white/20 relative">
       {/* Shine effect */}
-    <div className="absolute top-0 left-0 right-0 h-[1px] overflow-hidden">
+    <div className="absolute top-0 left-0 right-0 h-[2px] overflow-hidden">
     <div className="animate-shine"></div>
     </div>
       <div className="container mx-auto px-6 py-12">

@@ -1,5 +1,6 @@
 // components/ContentBlocks/ModernBlocks.tsx
 import React from 'react';
+import Image from 'next/image';
 import { Code, Palette, Shield, Quote } from 'lucide-react';
 
 // Types
@@ -75,7 +76,7 @@ export const ModernFeatureGrid: React.FC<{ features: Feature[] }> = ({
 export const ModernTestimonial: React.FC<{ testimonials: Testimonial[] }> = ({
   testimonials = [
     {
-      quote: "An absolute game-changer for our business.",
+      quote: "quote: &quot;An absolute game-changer for our business.&quot;",
       author: "Sarah Johnson",
       role: "CEO",
       company: "TechCorp"
@@ -92,11 +93,13 @@ export const ModernTestimonial: React.FC<{ testimonials: Testimonial[] }> = ({
             <div className="grid grid-cols-4 gap-8">
               <div className="col-span-1 relative">
                 <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
-                  <img
-                    src="/lion.png"
-                    alt={testimonial.author}
-                    className="w-16 h-16 object-cover"
-                  />
+                <Image 
+                  src="/lioncolor.png"
+                  alt={testimonial.author}
+                  width={300}
+                  height={300}
+                  className="w-full h-full object-cover"
+                />
                 </div>
                 <Quote className="absolute -bottom-2 -right-2 w-8 h-8 text-blue-600" />
               </div>

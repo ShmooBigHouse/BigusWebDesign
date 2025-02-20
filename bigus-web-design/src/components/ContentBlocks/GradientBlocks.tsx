@@ -1,5 +1,6 @@
 // components/ContentBlocks/GradientBlocks.tsx
 import React from 'react';
+import Image from 'next/image';
 import { Code, Palette, Shield, Quote } from 'lucide-react';
 
 // Types
@@ -79,7 +80,7 @@ export const GradientFeatureGrid: React.FC<{ features: Feature[] }> = ({
 export const GradientTestimonial: React.FC<{ testimonials: Testimonial[] }> = ({
   testimonials = [
     {
-      quote: "An absolute game-changer for our business.",
+      quote: "quote: &quot;An absolute game-changer for our business.&quot;",
       author: "Sarah Johnson",
       role: "CEO",
       company: "TechCorp"
@@ -109,10 +110,12 @@ export const GradientTestimonial: React.FC<{ testimonials: Testimonial[] }> = ({
                 <div className="flex items-center gap-6 mt-6 bg-gradient-to-r from-purple-900/50 to-blue-900/50 p-4 rounded-lg">
                   <div className="relative w-20 h-20">
                     <div className="absolute inset-0 bg-gradient-to-br from-purple-400 to-blue-400 rounded-lg opacity-50" />
-                    <img
+                    <Image
                       src="/lioncolor.png"
                       alt={testimonial.author}
-                      className="relative z-10 w-full h-full object-cover rounded-lg"
+                      width={300}
+                      height={300}
+                      className="w-full h-full object-cover"
                     />
                   </div>
                   <div>
