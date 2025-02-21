@@ -1,15 +1,6 @@
 // components/navigation/SidebarNav.tsx
 import React, { useState } from 'react';
-import { 
-  ChevronRight, 
-  Home, 
-  LayoutDashboard, 
-  Users, 
-  Settings, 
-  Bell, 
-  HelpCircle,
-  ChevronLeft,
-} from 'lucide-react';
+import { ChevronRight, Home, LayoutDashboard, Users, Settings, Bell, HelpCircle, ChevronLeft } from 'lucide-react';
 
 interface NavItem {
   name: string;

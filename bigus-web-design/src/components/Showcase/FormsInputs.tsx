@@ -1,16 +1,6 @@
 import React, { useState } from 'react';
 import { PenTool, ExternalLink, ArrowRight } from 'lucide-react';
-import {
-  MinimalContactForm,
-  MinimalLoginForm,
-  MinimalSubscribeForm,
-  ElegantContactForm,
-  ElegantLoginForm,
-  ElegantSubscribeForm,
-  ModernContactForm,
-  ModernLoginForm,
-  ModernSubscribeForm
-} from '@/components/FormsInputs';
+import { MinimalContactForm, MinimalLoginForm, MinimalSubscribeForm, ElegantContactForm, ElegantLoginForm, ElegantSubscribeForm, ModernContactForm, ModernLoginForm, ModernSubscribeForm } from '@/components/FormsInputs';
 
 interface Component {
   title: string;

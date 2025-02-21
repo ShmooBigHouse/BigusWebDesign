@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import { Folder, ExternalLink, ArrowRight } from 'lucide-react';
-import {
-  MinimalShowcase,
-  GradientShowcase,
-  GlassShowcase
-} from '@/components/ProjectPortfolioShowcase';
+import { MinimalShowcase, GradientShowcase, GlassShowcase } from '@/components/ProjectPortfolioShowcase';
 
 interface Component {
   title: string;
@@ -49,37 +45,19 @@ const ProjectPortfolioShowcase = () => {
       title: "Minimal Portfolio",
       description: "Clean, straightforward project showcase with essential details",
       preview: "Perfect for professional portfolios",
-      component: (
-        <MinimalShowcase
-          title="Featured Projects"
-          subtitle="A selection of our recent work"
-          projects={projects}
-        />
-      )
+      component: <MinimalShowcase />
     },
     {
       title: "Gradient Portfolio",
       description: "Modern portfolio with gradient effects and smooth transitions",
       preview: "Great for creative agencies",
-      component: (
-        <GradientShowcase
-          title="Our Work"
-          subtitle="Showcasing our best projects"
-          projects={projects}
-        />
-      )
+      component: <GradientShowcase />
     },
     {
       title: "Glass Portfolio",
       description: "Sophisticated portfolio with glass morphism effects",
       preview: "Perfect for design studios",
-      component: (
-        <GlassShowcase
-          title="Project Gallery"
-          subtitle="Explore our latest projects"
-          projects={projects}
-        />
-      )
+      component: <GlassShowcase />
     }
   ];
 

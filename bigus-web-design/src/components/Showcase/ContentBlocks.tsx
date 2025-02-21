@@ -1,16 +1,6 @@
 import React, { useState } from 'react';
 import { FileText, ExternalLink, ArrowRight, Code, Palette, Shield } from 'lucide-react';
-import {
-  ModernFeatureGrid,
-  ModernTestimonial,
-  ModernTextBlock,
-  GradientFeatureGrid,
-  GradientTestimonial,
-  GradientTextBlock,
-  GlassFeatureGrid,
-  GlassTestimonial,
-  GlassTextBlock
-} from '@/components/ContentBlocks';
+import { ModernFeatureGrid, ModernTestimonial, ModernTextBlock, GradientFeatureGrid, GradientTestimonial, GradientTextBlock, GlassFeatureGrid, GlassTestimonial, GlassTextBlock } from '@/components/ContentBlocks';
 
 interface Component {
   title: string;

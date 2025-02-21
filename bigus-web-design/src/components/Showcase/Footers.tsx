@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import { Blocks, ExternalLink, ArrowRight } from 'lucide-react';
-import {
-  SimpleFooter,
-  GradientFooter,
-  MinimalFooter
-} from '@/components/Footers';
+import { SimpleFooter, GradientFooter, MinimalFooter } from '@/components/Footers';
 
 interface Component {
   title: string;

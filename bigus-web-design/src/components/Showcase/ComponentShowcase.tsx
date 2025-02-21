@@ -1,18 +1,7 @@
 "use client";
 
 import React, { useState, useRef } from 'react';
-import { 
-  Layout, 
-  Blocks, 
-  PenTool, 
-  MousePointer, 
-  FileText, 
-  Palette, 
-  GitBranch, 
-  Folder, 
-  LayoutGrid, 
-  Users 
-} from 'lucide-react';
+import { Layout, Blocks, PenTool, MousePointer, FileText, Palette, GitBranch, Folder, LayoutGrid, Users } from 'lucide-react';
 
 // Import all showcase components
 import HeadersNavShowcase from '@/components/Showcase/HeadersNav';

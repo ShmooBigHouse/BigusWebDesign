@@ -1,16 +1,6 @@
 import React, { useState } from 'react';
 import { Palette, ExternalLink, ArrowRight } from 'lucide-react';
-import {
-  MinimalBackground,
-  MinimalPattern,
-  MinimalDivider,
-  GradientBackground,
-  GradientPattern,
-  GradientDivider,
-  GlassBackground,
-  GlassPattern,
-  GlassDivider
-} from '@/components/VisualElements';
+import { MinimalBackground, MinimalPattern, MinimalDivider, GradientBackground, GradientPattern, GradientDivider, GlassBackground, GlassPattern, GlassDivider } from '@/components/VisualElements';
 
 interface Component {
   title: string;

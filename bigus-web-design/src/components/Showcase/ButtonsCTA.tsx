@@ -1,16 +1,6 @@
 import React, { useState } from 'react';
 import { MousePointer, ExternalLink, ArrowRight } from 'lucide-react';
-import {
-  MinimalPrimaryButton,
-  MinimalSecondaryButton,
-  MinimalTextButton,
-  GradientPrimaryButton,
-  GradientSecondaryButton,
-  GradientFloatingButton,
-  GlassPrimaryButton,
-  GlassSecondaryButton,
-  GlassIconButton
-} from '@/components/ButtonsCTA';
+import { MinimalPrimaryButton, MinimalSecondaryButton, MinimalTextButton, GradientPrimaryButton, GradientSecondaryButton, GradientFloatingButton, GlassPrimaryButton, GlassSecondaryButton, GlassIconButton } from '@/components/ButtonsCTA';
 
 interface Component {
   title: string;

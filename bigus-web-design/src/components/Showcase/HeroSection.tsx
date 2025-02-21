@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import { Layout, ExternalLink, ArrowRight } from 'lucide-react';
-import {
-  MinimalHero,
-  GradientHero,
-  GlassHero
-} from '@/components/HeroSection';
+import { MinimalHero, GradientHero, GlassHero } from '@/components/HeroSection';
 
 interface Component {
   title: string;

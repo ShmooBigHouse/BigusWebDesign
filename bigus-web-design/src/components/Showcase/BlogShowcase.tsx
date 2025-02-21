@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import { FileText, ExternalLink, ArrowRight } from 'lucide-react';
-import {
-  MinimalBlog,
-  GradientBlog,
-  GlassBlog
-} from '@/components/Blogs';
+import { MinimalBlog, GradientBlog, GlassBlog } from '@/components/Blogs';
 
 interface Component {
   title: string;

@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import { Users, ExternalLink, ArrowRight } from 'lucide-react';
-import {
-  MinimalGrid,
-  GradientGrid,
-  GlassGrid
-} from '@/components/TeamMembersGrid';
+import { MinimalGrid, GradientGrid, GlassGrid } from '@/components/TeamMembersGrid';
 
 interface SocialLink {
   type: 'linkedin' | 'twitter' | 'github' | 'website';
@@ -80,37 +76,19 @@ const TeamMembersGridShowcase = () => {
       title: "Minimal Team Grid",
       description: "Clean, professional team member display with essential information",
       preview: "Perfect for corporate websites",
-      component: (
-        <MinimalGrid
-          title="Our Team"
-          subtitle="Meet the people behind our success"
-          members={members}
-        />
-      )
+      component: <MinimalGrid />
     },
     {
       title: "Gradient Team Grid",
       description: "Modern team grid with gradient effects and smooth transitions",
       preview: "Great for creative agencies",
-      component: (
-        <GradientGrid
-          title="The Team"
-          subtitle="Passionate experts driving innovation"
-          members={members}
-        />
-      )
+      component: <GradientGrid />
     },
     {
       title: "Glass Team Grid",
       description: "Sophisticated team grid with glass morphism effects",
       preview: "Perfect for modern startups",
-      component: (
-        <GlassGrid
-          title="Meet Our Experts"
-          subtitle="Dedicated professionals at your service"
-          members={members}
-        />
-      )
+      component: <GlassGrid />
     }
   ];
 

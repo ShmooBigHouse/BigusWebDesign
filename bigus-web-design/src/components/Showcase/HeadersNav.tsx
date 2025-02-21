@@ -1,12 +1,7 @@
 // components/Showcase/HeadersNav.tsx
 import React, { useState } from 'react';
 import { Layout, ExternalLink, ArrowRight } from 'lucide-react';
-import {
-  LegalHeader,
-  MarketplaceHeader,
-  MinimalHeader,
-  GlassHeader
-} from '@/components/Headers';
+import { LegalHeader, MarketplaceHeader, MinimalHeader, GlassHeader } from '@/components/Headers';
 import SidebarNav from '@/components/navigation/SidebarNav';
 
 interface Component {

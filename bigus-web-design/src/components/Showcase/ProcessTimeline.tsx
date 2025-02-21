@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import { GitBranch, ExternalLink, ArrowRight } from 'lucide-react';
-import {
-  MinimalTimeline,
-  GradientTimeline,
-  GlassTimeline
-} from '@/components/ProcessTimeline';
+import { MinimalTimeline, GradientTimeline, GlassTimeline } from '@/components/ProcessTimeline';
 
 interface Component {
   title: string;

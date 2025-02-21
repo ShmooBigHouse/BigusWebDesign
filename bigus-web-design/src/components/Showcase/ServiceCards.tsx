@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import { LayoutGrid, ExternalLink, ArrowRight, Code, Palette, Shield } from 'lucide-react';
-import {
-  MinimalCards,
-  GradientCards,
-  GlassCards
-} from '@/components/ServiceCards';
+import { MinimalCards, GradientCards, GlassCards } from '@/components/ServiceCards';
 
 interface Component {
   title: string;
@@ -65,13 +61,7 @@ const ServiceCardsShowcase = () => {
       title: "Minimal Service Cards",
       description: "Clean, straightforward service cards with essential information",
       preview: "Perfect for business websites",
-      component: (
-        <MinimalCards
-          title="Our Services"
-          subtitle="Choose the perfect plan for your needs"
-          services={services}
-        />
-      )
+      component: <MinimalCards />
     },
     {
       title: "Gradient Service Cards",
@@ -89,13 +79,7 @@ const ServiceCardsShowcase = () => {
       title: "Glass Service Cards",
       description: "Sophisticated service cards with glass morphism effects",
       preview: "Perfect for premium services",
-      component: (
-        <GlassCards
-          title="What We Offer"
-          subtitle="Professional services for your success"
-          services={services}
-        />
-      )
+      component: <GlassCards />
     }
   ];
 
