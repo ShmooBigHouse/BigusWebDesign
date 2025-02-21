@@ -95,18 +95,24 @@ const WebsiteStyles = () => {
             {/* Main Content Area */}
             <div className="flex gap-8">
               {/* Preview */}
-<div className="relative rounded-xl w-[800px] h-[800px]">
-  <div className="relative p-2 rounded-xl h-full">
-    <div className={`absolute inset-0 rounded-xl bg-gradient-to-r ${style.color} opacity-40`} />
-    <div className="relative h-full overflow-y-auto rounded-lg">
-      <div style={{ height: '800px', position: 'relative' }}>
-        <div className="scale-[0.8] origin-top transform-gpu absolute inset-0">
-          {style.component}
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+            <div className="relative rounded-xl w-[800px] h-[800px]">
+              <div className="relative p-2 rounded-xl h-full">
+                <div className={`absolute inset-0 rounded-xl bg-gradient-to-r ${style.color} opacity-40`} />
+                <div className="relative h-full overflow-y-auto rounded-lg 
+                  [&::-webkit-scrollbar]:w-2 
+                  [&::-webkit-scrollbar-track]:rounded-full
+                  [&::-webkit-scrollbar-track]:bg-white/60
+                  [&::-webkit-scrollbar-thumb]:rounded-full
+                  [&::-webkit-scrollbar-thumb]:bg-black/80
+                  [&::-webkit-scrollbar-thumb:hover]:bg-black">
+                  <div style={{ height: '800px', position: 'relative' }}>
+                    <div className="scale-[0.8] origin-top transform-gpu absolute inset-0">
+                      {style.component}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
               {/* Features - Now on right side */}
               <div className="flex-1 space-y-4">
