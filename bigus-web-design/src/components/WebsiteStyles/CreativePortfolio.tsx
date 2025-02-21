@@ -1,7 +1,7 @@
 import React from 'react';
-import { GradientHero } from '@/components/HeroSection';
 import { GradientPrimaryButton, GradientSecondaryButton } from '@/components/ButtonsCTA';
 import { GradientFooter } from '@/components/Footers';
+import Image from 'next/image';
 
 const CreativePortfolio = () => {
   return (
@@ -32,10 +32,12 @@ const CreativePortfolio = () => {
             </div>
             <div className="relative">
               <div className="aspect-square w-full max-w-md mx-auto bg-gradient-to-br from-purple-600 to-pink-600 rounded-full p-8 animate-pulse">
-                <img 
-                  src="/creative.png" 
-                  alt="Creative Artwork"
-                  className="w-full h-full object-cover rounded-full transform hover:scale-105 transition-transform duration-500"
+              <Image 
+                src="/image.png"
+                alt="alt text"
+                width={400}
+                height={400}
+                className="w-full h-full object-cover"
                 />
               </div>
             </div>
@@ -102,7 +104,7 @@ const CreativePortfolio = () => {
           <h2 className="text-4xl font-bold text-center mb-16 text-white">Client Feedback</h2>
           <div className="bg-gradient-to-br from-purple-900/50 to-pink-900/50 p-8 rounded-2xl">
             <blockquote className="text-2xl text-white italic mb-6">
-                "The team's creative vision and technical expertise brought our project to life in ways we never imagined possible."
+            &quot;The team&apos;s creative vision and technical expertise brought our project to life in ways we never imagined possible&quot;
             </blockquote>
             <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-pink-500"></div>
@@ -122,7 +124,7 @@ const CreativePortfolio = () => {
             Start Your Project
           </h2>
           <p className="text-gray-300 text-center mb-16 max-w-2xl mx-auto">
-            Let's create something amazing together
+          Let&apos;s create something amazing together
           </p>
           <div className="max-w-xl mx-auto">
           <form className="space-y-6">
