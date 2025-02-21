@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Blocks, ExternalLink, ArrowRight } from 'lucide-react';
-import { SimpleFooter, GradientFooter, MinimalFooter } from '@/components/Footers';
+import { LegalFooter,SimpleFooter, GradientFooter, MinimalFooter } from '@/components/Footers';
 
 interface Component {
   title: string;
@@ -12,40 +12,59 @@ interface Component {
 const FootersShowcase = () => {
   const [expandedComponent, setExpandedComponent] = useState<number | null>(null);
 
-  // Sample data for demos
-  const sampleData = {
-    companyName: "Sample Corp",
-    email: "hello@samplecorp.com",
-    phone: "(555) 123-4567",
-    location: "San Francisco, USA"
-  };
+  // Sample data for regular footers
+const sampleData = {
+  companyName: "Sample Corp",
+  email: "hello@samplecorp.com",
+  phone: "(555) 123-4567",
+  location: "San Francisco, USA"
+};
 
-  const components: Component[] = [
-    {
-      title: "Simple Footer",
-      description: "Clean, organized footer with company info, navigation, and contact details",
-      preview: "Professional three-column layout",
-      component: (
-        <SimpleFooter {...sampleData} />
-      )
-    },
-    {
-      title: "Gradient Footer",
-      description: "Modern footer with gradient effects and enhanced visual elements",
-      preview: "Eye-catching design with smooth transitions",
-      component: (
-        <GradientFooter {...sampleData} />
-      )
-    },
-    {
-      title: "Minimal Footer",
-      description: "Streamlined footer focused on essential information",
-      preview: "Clean, distraction-free design",
-      component: (
-        <MinimalFooter {...sampleData} />
-      )
-    }
-  ];
+// Sample data specifically for legal footer
+const legalSampleData = {
+  companyName: "Sample Legal",
+  email: "hello@samplelegal.com",
+  phone: {
+    office: "(555) 123-4567",
+    cell: "(555) 765-4321"
+  },
+  location: "San Francisco, USA"
+};
+
+const components: Component[] = [
+  {
+    title: "Simple Footer",
+    description: "Clean, organized footer with company info, navigation, and contact details",
+    preview: "Professional three-column layout",
+    component: (
+      <SimpleFooter {...sampleData} />
+    )
+  },
+  {
+    title: "Gradient Footer",
+    description: "Modern footer with gradient effects and enhanced visual elements",
+    preview: "Eye-catching design with smooth transitions",
+    component: (
+      <GradientFooter {...sampleData} />
+    )
+  },
+  {
+    title: "Minimal Footer",
+    description: "Streamlined footer focused on essential information",
+    preview: "Clean, distraction-free design",
+    component: (
+      <MinimalFooter {...sampleData} />
+    )
+  },
+  {
+    title: "Legal Footer",
+    description: "A footer designed for legal information and contact details",
+    preview: "A clean, modern footer for legal information",
+    component: (
+      <LegalFooter {...legalSampleData} />
+    )
+  }
+];
 
   return (
     <div className="space-y-6">
