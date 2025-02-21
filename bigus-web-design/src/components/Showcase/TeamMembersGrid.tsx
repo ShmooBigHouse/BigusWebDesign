@@ -2,19 +2,6 @@ import React, { useState } from 'react';
 import { Users, ExternalLink, ArrowRight } from 'lucide-react';
 import { MinimalGrid, GradientGrid, GlassGrid } from '@/components/TeamMembersGrid';
 
-interface SocialLink {
-  type: 'linkedin' | 'twitter' | 'github' | 'website';
-  url: string;
-}
-
-interface TeamMember {
-  name: string;
-  role: string;
-  imageSrc: string;
-  bio?: string;
-  socialLinks?: SocialLink[];
-}
-
 interface Component {
   title: string;
   description: string;
