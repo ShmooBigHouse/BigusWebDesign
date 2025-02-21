@@ -13,15 +13,57 @@ interface Component {
   component: React.ReactNode;
 }
 
+// Define the step type that matches your timeline components
+interface Step {
+  title: string;
+  description: string;
+  duration?: string;
+  status?: 'completed' | 'in-progress' | 'upcoming';
+}
+
 const ProcessTimelineShowcase = () => {
   const [expandedComponent, setExpandedComponent] = useState<number | null>(null);
+
+  // Sample steps data to be used across all timeline variants
+  const sampleSteps: Step[] = [
+    {
+      title: "Discovery Phase",
+      description: "Initial consultation and project planning",
+      duration: "Week 1",
+      status: 'completed'
+    },
+    {
+      title: "Design Phase",
+      description: "Creating wireframes and visual designs",
+      duration: "Week 2-3",
+      status: 'in-progress'
+    },
+    {
+      title: "Development",
+      description: "Building the core functionality",
+      duration: "Week 4-6",
+      status: 'upcoming'
+    },
+    {
+      title: "Testing",
+      description: "Quality assurance and user testing",
+      duration: "Week 7",
+      status: 'upcoming'
+    },
+    {
+      title: "Launch",
+      description: "Deployment and final adjustments",
+      duration: "Week 8",
+      status: 'upcoming'
+    }
+  ];
 
   const components: Component[] = [
     {
       title: "Minimal Timeline",
       description: "Clean, straightforward timeline with clear progression",
       preview: "Perfect for business processes",
-      component: <MinimalTimeline />
+      component: <MinimalTimeline steps={sampleSteps} />
     },
     {
       title: "Gradient Timeline",
