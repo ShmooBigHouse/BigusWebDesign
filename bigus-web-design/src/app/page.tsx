@@ -74,17 +74,14 @@ const HomePage = () => {
               {/* Image */}
               <div className="relative z-10 w-2/5">
               <Image 
-                  src="/shmoo.png"
+                  src={'/shmoo-hero.png'} 
                   alt="Your Local Web Developer"
                   width={400}
                   height={400}
                   className="w-full h-auto rounded-2xl"
                   priority
-                  style={{
-                    maxWidth: '100%',
-                    height: 'auto',
-                    objectFit: 'contain'
-                  }}
+                  quality={100}
+                  loading="eager"
                 />
               </div>
             </div>
