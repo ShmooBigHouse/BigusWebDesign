@@ -1,10 +1,10 @@
 import React from 'react';
-import { MinimalHero } from '@/components/HeroSection';
 import { MinimalPrimaryButton, MinimalSecondaryButton } from '@/components/ButtonsCTA';
 import { MinimalHeader } from '@/components/Headers';
 import { MinimalFooter } from '@/components/Footers';
 import { MinimalCards } from '@/components/ServiceCards';
 import { ModernContactForm } from '@/components/FormsInputs';
+import Image from 'next/image';
 
 const ModernBusiness = () => {
   return (
@@ -42,11 +42,13 @@ const ModernBusiness = () => {
             <div className="relative">
               <div className="aspect-square w-full max-w-md mx-auto bg-yellow-300 rounded-3xl p-8 shadow-lg">
                 <div className="relative w-full h-full">
-                  <img 
-                    src="/businesswoman.png" 
-                    alt="Business Professional"
-                    className="w-full h-full object-cover rounded-2xl"
-                  />
+                <Image 
+                src="/businesswoman.png"
+                alt="Business Professional"
+                width={400}
+                height={400}
+                className="w-full h-full object-cover rounded-2xl"
+                />
                 </div>
               </div>
             </div>
@@ -68,7 +70,7 @@ const ModernBusiness = () => {
           <h2 className="text-3xl font-bold text-center mb-16">Client Success Stories</h2>
           <div className="max-w-3xl mx-auto">
             <blockquote className="text-lg text-gray-600 text-center italic">
-                "Working with Modern Business has transformed our company's digital presence. Their strategic insights and professional execution exceeded our expectations."
+            &quot;Working with Modern Business has transformed our company&apos;s digital presence. Their strategic insights and professional execution exceeded our expectations.&quot;
             </blockquote>
             <div className="mt-4 text-center">
                 <p className="font-semibold">Sarah Johnson</p>

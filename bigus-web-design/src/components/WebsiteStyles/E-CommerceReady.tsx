@@ -1,14 +1,23 @@
 import React, { useState } from 'react';
-import { GlassHero } from '@/components/HeroSection';
+import Image from 'next/image';
 import { GlassPrimaryButton, GlassSecondaryButton, GlassIconButton } from '@/components/ButtonsCTA';
 import { GlassHeader } from '@/components/Headers';
 import { GlassCards } from '@/components/ServiceCards';
 import { Search, ShoppingCart, Heart, Filter, Star } from 'lucide-react';
 
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  category: string;
+  rating: number;
+  image: string;
+}
+
 const E_CommerceReady = () => {
   const [cartCount, setCartCount] = useState(0);
 
-  const products = [
+  const products: Product[] = [
     {
       id: 1,
       name: "Premium Headphones",
@@ -93,10 +102,13 @@ const E_CommerceReady = () => {
             </div>
             <div className="relative">
               <div className="aspect-square w-full max-w-md mx-auto bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10">
-                <img 
-                  src="/featured-product.png" 
+                <Image 
+                  src="/featured-product.png"
                   alt="Featured Product"
+                  width={400}
+                  height={400}
                   className="w-full h-full object-contain"
+                  priority
                 />
               </div>
             </div>
@@ -151,15 +163,17 @@ const E_CommerceReady = () => {
       <section className="py-12">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {products.map((product) => (
+            {products.map((product: Product) => (
               <div
                 key={product.id}
                 className="group relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-all"
               >
                 <div className="aspect-square p-8">
-                  <img 
+                  <Image 
                     src={product.image}
                     alt={product.name}
+                    width={400}
+                    height={400}
                     className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
@@ -200,41 +214,41 @@ const E_CommerceReady = () => {
       {/* Footer */}
       <footer className="bg-white/5 backdrop-blur-xl border-t border-white/10">
         <div className="container mx-auto px-6 py-12">
-            <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-4 gap-8">
             <div>
-                <h3 className="text-lg font-semibold text-white mb-4">TechStore</h3>
-                <p className="text-gray-400">Your premium tech destination</p>
+              <h3 className="text-lg font-semibold text-white mb-4">TechStore</h3>
+              <p className="text-gray-400">Your premium tech destination</p>
             </div>
             <div>
-                <h3 className="text-lg font-semibold text-white mb-4">Contact</h3>
-                <ul className="space-y-2 text-gray-400">
+              <h3 className="text-lg font-semibold text-white mb-4">Contact</h3>
+              <ul className="space-y-2 text-gray-400">
                 <li>support@techstore.com</li>
                 <li>(555) 345-6789</li>
                 <li>San Francisco, CA</li>
-                </ul>
+              </ul>
             </div>
             <div>
-                <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
-                <ul className="space-y-2">
+              <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
+              <ul className="space-y-2">
                 <li><a href="#" className="text-gray-400 hover:text-white transition-colors">About Us</a></li>
                 <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
                 <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Support</a></li>
-                </ul>
+              </ul>
             </div>
             <div>
-                <h3 className="text-lg font-semibold text-white mb-4">Follow Us</h3>
-                <ul className="space-y-2">
+              <h3 className="text-lg font-semibold text-white mb-4">Follow Us</h3>
+              <ul className="space-y-2">
                 <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Twitter</a></li>
                 <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Instagram</a></li>
                 <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Facebook</a></li>
-                </ul>
+              </ul>
             </div>
-            </div>
-            <div className="mt-8 pt-8 border-t border-white/10 text-center text-gray-400">
+          </div>
+          <div className="mt-8 pt-8 border-t border-white/10 text-center text-gray-400">
             <p>&copy; {new Date().getFullYear()} TechStore. All rights reserved.</p>
-            </div>
+          </div>
         </div>
-        </footer>
+      </footer>
     </div>
   );
 };
