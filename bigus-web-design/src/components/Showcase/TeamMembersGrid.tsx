@@ -25,52 +25,6 @@ interface Component {
 const TeamMembersGridShowcase = () => {
   const [expandedComponent, setExpandedComponent] = useState<number | null>(null);
 
-  // Sample data for demos
-  const members: TeamMember[] = [
-    {
-      name: "Sarah Johnson",
-      role: "Lead Designer",
-      imageSrc: "/api/placeholder/300/300",
-      bio: "Over 10 years of experience in UI/UX design and brand strategy.",
-      socialLinks: [
-        { type: 'linkedin', url: '#' },
-        { type: 'twitter', url: '#' },
-        { type: 'website', url: '#' }
-      ]
-    },
-    {
-      name: "Michael Chen",
-      role: "Senior Developer",
-      imageSrc: "/api/placeholder/300/300",
-      bio: "Full-stack developer with expertise in React and Node.js.",
-      socialLinks: [
-        { type: 'github', url: '#' },
-        { type: 'linkedin', url: '#' },
-        { type: 'twitter', url: '#' }
-      ]
-    },
-    {
-      name: "Emily Davis",
-      role: "Project Manager",
-      imageSrc: "/api/placeholder/300/300",
-      bio: "Certified PMP with a track record of successful project delivery.",
-      socialLinks: [
-        { type: 'linkedin', url: '#' },
-        { type: 'website', url: '#' }
-      ]
-    },
-    {
-      name: "James Wilson",
-      role: "Marketing Specialist",
-      imageSrc: "/api/placeholder/300/300",
-      bio: "Digital marketing expert specializing in growth strategies.",
-      socialLinks: [
-        { type: 'twitter', url: '#' },
-        { type: 'linkedin', url: '#' }
-      ]
-    }
-  ];
-
   const components: Component[] = [
     {
       title: "Minimal Team Grid",

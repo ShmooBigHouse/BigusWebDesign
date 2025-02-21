@@ -12,34 +12,6 @@ interface Component {
 const ProjectPortfolioShowcase = () => {
   const [expandedComponent, setExpandedComponent] = useState<number | null>(null);
 
-  // Sample data for demos
-  const projects = [
-    {
-      title: "E-commerce Platform",
-      description: "A modern online shopping experience built with Next.js and Stripe",
-      category: "Web Development",
-      imageSrc: "/api/placeholder/400/300",
-      technologies: ["Next.js", "React", "Stripe", "Tailwind CSS"],
-      link: "#"
-    },
-    {
-      title: "Portfolio Website",
-      description: "Clean and minimal portfolio for a professional photographer",
-      category: "Design",
-      imageSrc: "/api/placeholder/400/300",
-      technologies: ["React", "Framer Motion", "GSAP", "Tailwind CSS"],
-      link: "#"
-    },
-    {
-      title: "Mobile App",
-      description: "Cross-platform mobile application for task management",
-      category: "Mobile Development",
-      imageSrc: "/api/placeholder/400/300",
-      technologies: ["React Native", "Redux", "Firebase", "TypeScript"],
-      link: "#"
-    }
-  ];
-
   const components: Component[] = [
     {
       title: "Minimal Portfolio",
