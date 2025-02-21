@@ -11,14 +11,14 @@ import ButtonsCTAShowcase from '@/components/Showcase/ButtonsCTA';
 import ContentBlocksShowcase from '@/components/Showcase/ContentBlocks';
 import VisualElementsShowcase from '@/components/Showcase/VisualElements';
 import HeroSectionShowcase from '@/components/Showcase/HeroSection';
-import ProcessTimelineShowcase from '@/components/Showcase/ProcessTimeline';
+import NumberedComponentsShowcase from '@/components/Showcase/NumberedComponents';
 import ProjectPortfolioShowcase from '@/components/Showcase/ProjectPortfolioShowcase';
 import ServiceCardsShowcase from '@/components/Showcase/ServiceCards';
 import TeamMembersGridShowcase from '@/components/Showcase/TeamMembersGrid';
 import BlogShowcase from '@/components/Showcase/BlogShowcase';
 
 
-type CategoryId = 'headers' | 'footers' | 'hero' | 'timeline' | 'portfolio' | 'services' | 'team' | 'forms' | 'buttons' | 'content' | 'visual' | 'blog';
+type CategoryId = 'headers' | 'footers' | 'hero' | 'numbers' | 'portfolio' | 'services' | 'team' | 'forms' | 'buttons' | 'content' | 'visual' | 'blog';
 
 interface Category {
   id: CategoryId;
@@ -75,11 +75,11 @@ const ComponentShowcase = () => {
       component: <HeroSectionShowcase />
     },
     {
-      id: 'timeline',
-      name: 'Process Timeline',
+      id: 'numbers',
+      name: 'Numbered Components',
       icon: <GitBranch className="w-5 h-5" />,
-      description: 'Visual timelines to showcase your workflow',
-      component: <ProcessTimelineShowcase />
+      description: 'Visual guides for processes, timelines, and key points.',
+      component: <NumberedComponentsShowcase />
     },
     {
       id: 'portfolio',

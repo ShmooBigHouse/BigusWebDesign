@@ -2,7 +2,7 @@
 import React from 'react';
 import { Code, Palette, Shield } from 'lucide-react';
 
-export const GlassTimeline: React.FC = () => {
+export const GlassNumbers: React.FC = () => {
   return (
     <div className="space-y-32">
       {/* Process Steps */}
@@ -150,4 +150,4 @@ export const GlassTimeline: React.FC = () => {
   );
 };
 
-export default GlassTimeline;
+export default GlassNumbers;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { GitBranch, ExternalLink, ArrowRight } from 'lucide-react';
-import { MinimalTimeline, GradientTimeline, GlassTimeline } from '@/components/ProcessTimeline';
+import { MinimalNumbers, GradientNumbers, GlassNumbers } from '@/components/NumberedComponents';
 
 interface Component {
   title: string;
@@ -17,7 +17,7 @@ interface Step {
   status?: 'completed' | 'in-progress' | 'upcoming';
 }
 
-const ProcessTimelineShowcase = () => {
+const NumberedComponentsShowcase = () => {
   const [expandedComponent, setExpandedComponent] = useState<number | null>(null);
 
   // Sample steps data to be used across all timeline variants
@@ -56,22 +56,22 @@ const ProcessTimelineShowcase = () => {
 
   const components: Component[] = [
     {
-      title: "Minimal Timeline",
-      description: "Clean, straightforward timeline with clear progression",
+      title: "Minimal Numbers",
+      description: "Clean, straightforward numbered components with clear progression",
       preview: "Perfect for business processes",
-      component: <MinimalTimeline steps={sampleSteps} />
+      component: <MinimalNumbers steps={sampleSteps} />
     },
     {
-      title: "Gradient Timeline",
-      description: "Modern timeline with gradient effects and transitions",
+      title: "Gradient Numbers",
+      description: "Modern numbered components with gradient effects and transitions",
       preview: "Great for creative workflows",
-      component: <GradientTimeline />
+      component: <GradientNumbers />
     },
     {
-      title: "Glass Timeline",
-      description: "Sophisticated timeline with glass morphism effects",
+      title: "Glass Numbers",
+      description: "Sophisticated numbered components with glass morphism effects",
       preview: "Perfect for premium services",
-      component: <GlassTimeline />
+      component: <GlassNumbers />
     }
   ];
 
@@ -81,8 +81,8 @@ const ProcessTimelineShowcase = () => {
       <div className="p-6 flex items-center gap-4">
         <GitBranch className="w-8 h-8 text-blue-400" />
         <div>
-          <h3 className="text-2xl font-bold text-white">Process Timelines</h3>
-          <p className="text-gray-400">Visual timelines to showcase your workflow</p>
+          <h3 className="text-2xl font-bold text-white">Numbered Components</h3>
+          <p className="text-gray-400">Visual guides for processes, timelines, and key points.</p>
         </div>
       </div>
 
@@ -142,4 +142,4 @@ const ProcessTimelineShowcase = () => {
   );
 };
 
-export default ProcessTimelineShowcase;
+export default NumberedComponentsShowcase;

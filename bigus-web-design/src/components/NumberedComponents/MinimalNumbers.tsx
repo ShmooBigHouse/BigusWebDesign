@@ -67,7 +67,7 @@ const featureSteps = [
   }
 ];
 
-export const MinimalTimeline: React.FC<TimelineProps> = () => {
+export const MinimalNumbers: React.FC<TimelineProps> = () => {
   return (
     <div className="space-y-32">
       {/* Process Steps - Horizontal Steps */}

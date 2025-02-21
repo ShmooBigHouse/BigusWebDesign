@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const GradientTimeline = () => {
+export const GradientNumbers = () => {
   // Consolidated all steps data
   const timelineSteps = [
     {
@@ -167,4 +167,4 @@ export const GradientTimeline = () => {
   );
 };
 
-export default GradientTimeline;
+export default GradientNumbers;
