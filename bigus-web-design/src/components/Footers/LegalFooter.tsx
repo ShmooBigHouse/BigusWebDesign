@@ -1,6 +1,5 @@
 // components/Footers/LegalFooter.tsx
 import React from 'react';
-import Link from 'next/link';
 
 interface FooterProps {
   companyName?: string;
@@ -53,9 +52,9 @@ const LegalFooter: React.FC<FooterProps> = ({
               <p className="text-blue-400 mt-2">Attorney at Law</p>
             </div>
             <div className="mt-4 space-y-2">
-              <Link href="/about" className="text-gray-300 hover:text-blue-400 transition-colors duration-200 inline-block">
+              <span className="text-gray-300 hover:text-blue-400 transition-colors duration-200 cursor-pointer">
                 About my practice
-              </Link>
+              </span>
               <div className="text-sm text-gray-400 mt-4 space-y-2">
                 <p>Licensed in Kansas and Missouri</p>
               </div>
@@ -75,36 +74,30 @@ const LegalFooter: React.FC<FooterProps> = ({
               {/* First Column - Criminal Defense & Mediation */}
               <div className="space-y-2">
                 <div>
-                  <Link href="/criminal-defense" className="text-gray-300 hover:text-blue-400 transition-colors duration-200">
+                  <span className="text-gray-300 hover:text-blue-400 transition-colors duration-200 cursor-pointer">
                     {practiceAreas.criminalDefense.title}
-                  </Link>
+                  </span>
                   <div className="pl-4 text-sm space-y-1 mt-2">
                     {practiceAreas.criminalDefense.items.map((item) => (
                       <div key={item} className="inline-block w-full">
-                        <Link 
-                          href={`/criminal-defense/${item.toLowerCase().replace(/\s+/g, '-')}`}
-                          className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
-                        >
+                        <span className="text-gray-400 hover:text-blue-400 transition-colors duration-200 cursor-pointer">
                           {item}
-                        </Link>
+                        </span>
                       </div>
                     ))}
                   </div>
                 </div>
                 
                 <div className="mt-4">
-                  <Link href="/mediation" className="text-gray-300 hover:text-blue-400 transition-colors duration-200">
+                  <span className="text-gray-300 hover:text-blue-400 transition-colors duration-200 cursor-pointer">
                     {practiceAreas.mediation.title}
-                  </Link>
+                  </span>
                   <div className="pl-4 text-sm space-y-1 mt-2">
                     {practiceAreas.mediation.items.map((item) => (
                       <div key={item} className="inline-block w-full">
-                        <Link 
-                          href={`/mediation/${item.toLowerCase().replace(/\s+/g, '-')}`}
-                          className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
-                        >
+                        <span className="text-gray-400 hover:text-blue-400 transition-colors duration-200 cursor-pointer">
                           {item}
-                        </Link>
+                        </span>
                       </div>
                     ))}
                   </div>
@@ -114,27 +107,24 @@ const LegalFooter: React.FC<FooterProps> = ({
               {/* Second Column - Domestic Law & Collections */}
               <div className="space-y-2">
                 <div>
-                  <Link href="/domestic" className="text-gray-300 hover:text-blue-400 transition-colors duration-200">
+                  <span className="text-gray-300 hover:text-blue-400 transition-colors duration-200 cursor-pointer">
                     {practiceAreas.domestic.title}
-                  </Link>
+                  </span>
                   <div className="pl-4 text-sm space-y-1 mt-2">
                     {practiceAreas.domestic.items.map((item) => (
                       <div key={item} className="inline-block w-full">
-                        <Link 
-                          href={`/domestic/${item.toLowerCase().replace(/\s+/g, '-')}`}
-                          className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
-                        >
+                        <span className="text-gray-400 hover:text-blue-400 transition-colors duration-200 cursor-pointer">
                           {item}
-                        </Link>
+                        </span>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 <div className="mt-4">
-                  <Link href="/collections" className="text-gray-300 hover:text-blue-400 transition-colors duration-200">
+                  <span className="text-gray-300 hover:text-blue-400 transition-colors duration-200 cursor-pointer">
                     Collections
-                  </Link>
+                  </span>
                 </div>
               </div>
             </div>
@@ -153,15 +143,15 @@ const LegalFooter: React.FC<FooterProps> = ({
               <div className="space-y-2">
                 <p className="text-gray-300">Get in Touch:</p>
                 <div className="space-y-2">
-                  <a href={`tel:1-${phone.office.replace(/\D/g,'')}`} className="text-gray-400 hover:text-blue-400 transition-colors duration-200 block">
+                  <span className="text-gray-400 hover:text-blue-400 transition-colors duration-200 block cursor-pointer">
                     Office: {phone.office}
-                  </a>
-                  <a href={`tel:1-${phone.cell.replace(/\D/g,'')}`} className="text-gray-400 hover:text-blue-400 transition-colors duration-200 block">
+                  </span>
+                  <span className="text-gray-400 hover:text-blue-400 transition-colors duration-200 block cursor-pointer">
                     Cell: {phone.cell}
-                  </a>
-                  <a href={`mailto:${email}`} className="text-gray-400 hover:text-blue-400 transition-colors duration-200 block">
+                  </span>
+                  <span className="text-gray-400 hover:text-blue-400 transition-colors duration-200 block cursor-pointer">
                     {email}
-                  </a>
+                  </span>
                 </div>
               </div>
             </div>
@@ -176,12 +166,12 @@ const LegalFooter: React.FC<FooterProps> = ({
               <p className="text-xs text-gray-500">Designed by BigusDesign.com</p>
             </div>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="/privacy-policy" className="hover:text-blue-400 transition-colors duration-200">
+              <span className="hover:text-blue-400 transition-colors duration-200 cursor-pointer">
                 Privacy Policy
-              </Link>
-              <Link href="/disclaimer" className="hover:text-blue-400 transition-colors duration-200">
+              </span>
+              <span className="hover:text-blue-400 transition-colors duration-200 cursor-pointer">
                 Disclaimer
-              </Link>
+              </span>
             </div>
           </div>
         </div>
