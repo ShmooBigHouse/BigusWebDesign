@@ -80,6 +80,11 @@ const HomePage = () => {
                   height={400}
                   className="w-full h-auto rounded-2xl"
                   priority
+                  style={{
+                    maxWidth: '100%',
+                    height: 'auto',
+                    objectFit: 'contain'
+                  }}
                 />
               </div>
             </div>
