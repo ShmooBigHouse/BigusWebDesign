@@ -2,7 +2,6 @@
 "use client";
 
 import React, { useState } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
 import { Phone, Mail, Menu, X } from 'lucide-react';
 
@@ -25,10 +24,10 @@ interface HeaderProps {
 }
 
 const defaultNavItems: NavItem[] = [
-  { name: 'Home', path: '/' },
+  { name: 'Home', path: '#' },
   { 
     name: 'Services', 
-    path: '/services',
+    path: '#',
     dropdown: [
       'Criminal Defense',
       'Family Law',
@@ -38,10 +37,10 @@ const defaultNavItems: NavItem[] = [
       'Real Estate Law'
     ]
   },
-  { name: 'Contact', path: '/contact' },
+  { name: 'Contact', path: '#' },
   {
     name: 'About',
-    path: '/about',
+    path: '#',
     dropdown: [
       'Our History',
       'Our Team',
@@ -120,18 +119,17 @@ const LegalHeader: React.FC<HeaderProps> = ({
           <div className="flex justify-center items-center">
             <div className="space-y-4">
               {[
-                { icon: <Phone className="w-5 h-5" />, text: `Office: ${contact.office}`, href: `tel:1-${contact.office}` },
-                { icon: <Phone className="w-5 h-5" />, text: `Cell: ${contact.cell}`, href: `tel:1-${contact.cell}` },
-                { icon: <Mail className="w-5 h-5" />, text: contact.email, href: `mailto:${contact.email}` }
+                { icon: <Phone className="w-5 h-5" />, text: `Office: ${contact.office}` },
+                { icon: <Phone className="w-5 h-5" />, text: `Cell: ${contact.cell}` },
+                { icon: <Mail className="w-5 h-5" />, text: contact.email }
               ].map((item, index) => (
                 <div key={index} className="flex items-center group">
-                  <a href={item.href} 
-                     className="flex items-center space-x-3 bg-blue-800 hover:bg-blue-700 text-gray-200 
+                  <div className="flex items-center space-x-3 bg-blue-800 hover:bg-blue-700 text-gray-200 
                               px-4 py-2.5 rounded-lg transition-all duration-300 border border-gray-300 
-                              w-full md:w-64">
+                              w-full md:w-64 cursor-default">
                     {item.icon}
                     <span>{item.text}</span>
-                  </a>
+                  </div>
                 </div>
               ))}
             </div>
@@ -147,15 +145,14 @@ const LegalHeader: React.FC<HeaderProps> = ({
                 key={item.name} 
                 className={`relative group ${index !== navItems.length - 1 ? 'border-r-2 border-gray-300' : ''}`}
               >
-                <Link 
-                  href={item.path}
-                  className={`inline-block px-8 py-3 text-white font-medium 
+                <div 
+                  className={`inline-block px-8 py-3 text-white font-medium cursor-pointer
                     hover:bg-blue-700 transition-all duration-300
                     ${index === 0 ? 'rounded-tl-lg' : ''} 
                     ${index === navItems.length - 1 ? 'rounded-tr-lg' : ''}`}
                 >
                   {item.name}
-                </Link>
+                </div>
                 
                 {item.dropdown && (
                   <div 
@@ -168,16 +165,15 @@ const LegalHeader: React.FC<HeaderProps> = ({
                     }}
                   >
                     {item.dropdown.map((subItem, subIndex) => (
-                      <Link
+                      <div
                         key={subItem}
-                        href={`${item.path}/${subItem.toLowerCase().replace(/ /g, '-')}`}
-                        className={`block px-4 py-2.5 text-white hover:bg-blue-700
+                        className={`block px-4 py-2.5 text-white hover:bg-blue-700 cursor-pointer
                           transition-colors duration-200
                           ${subIndex === 0 ? 'rounded-t-lg' : ''}
                           ${subIndex === item.dropdown!.length - 1 ? 'rounded-b-lg' : ''}`}
                       >
                         {subItem}
-                      </Link>
+                      </div>
                     ))}
                   </div>
                 )}
@@ -211,27 +207,25 @@ const LegalHeader: React.FC<HeaderProps> = ({
                       </svg>
                     </button>
                   ) : (
-                    <Link 
-                      href={item.path}
-                      className="block text-white text-lg py-2 px-4 rounded hover:bg-blue-800"
+                    <div 
+                      className="block text-white text-lg py-2 px-4 rounded hover:bg-blue-800 cursor-pointer"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {item.name}
-                    </Link>
+                    </div>
                   )}
                   
                   {item.dropdown && (
                     <div className={`pl-4 mt-2 space-y-2 overflow-hidden transition-all duration-300 
                       ${openDropdowns[item.name] ? 'max-h-96' : 'max-h-0'}`}>
                       {item.dropdown.map((subItem) => (
-                        <Link
+                        <div
                           key={subItem}
-                          href={`${item.path}/${subItem.toLowerCase().replace(/ /g, '-')}`}
-                          className="block text-gray-200 py-2 px-4 rounded hover:bg-blue-800"
+                          className="block text-gray-200 py-2 px-4 rounded hover:bg-blue-800 cursor-pointer"
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           {subItem}
-                        </Link>
+                        </div>
                       ))}
                     </div>
                   )}

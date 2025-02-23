@@ -48,7 +48,7 @@ export const GradientBlog: React.FC = () => {
     readTime: "8 min read",
     category: "Web Development",
     tags: ["React", "Web3", "AI", "Design"],
-    featuredImage: "/code.png",
+    featuredImage: "/APhone.png",
     content: {
       text: "As we approach 2025, the web development landscape continues to evolve at an unprecedented pace...",
       callouts: [
@@ -75,12 +75,12 @@ export const GradientBlog: React.FC = () => {
       {
         title: "Understanding Modern CSS Architecture",
         date: "Feb 15, 2025",
-        image: "/css.png"
+        image: "/DigitalDreams.png"
       },
       {
         title: "The Rise of AI in Web Development",
         date: "Feb 12, 2025",
-        image: "/ai.png"
+        image: "/Controller.png"
       }
     ],
     tags: ["JavaScript", "React", "CSS", "Web Design", "AI"]

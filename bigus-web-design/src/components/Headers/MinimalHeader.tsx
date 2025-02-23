@@ -3,7 +3,6 @@
 
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { ExternalLink } from 'lucide-react';
 
 interface NavLink {
@@ -24,9 +23,9 @@ const MinimalHeader: React.FC<MinimalHeaderProps> = ({
   title = "Portfolio",
   logo = "/whiteturtle.png",
   links = [
-    { text: "LinkedIn", href: "https://linkedin.com", isExternal: true },
-    { text: "Email", href: "mailto:example@example.com", isExternal: true },
-    { text: "CV", href: "/cv" }
+    { text: "LinkedIn", href: "#", isExternal: true },
+    { text: "Email", href: "#", isExternal: true },
+    { text: "CV", href: "#" }
   ],
   logoSize = 48,
   showBorder = true
@@ -68,24 +67,20 @@ const MinimalHeader: React.FC<MinimalHeaderProps> = ({
             <div className="flex items-center justify-end gap-6">
               {links.map((link, index) => (
                 link.isExternal ? (
-                  <a 
+                  <div 
                     key={index}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-center gap-1 text-white/90 hover:text-white transition-colors"
+                    className="group flex items-center gap-1 text-white/90 hover:text-white transition-colors cursor-pointer"
                   >
                     {link.text}
                     <ExternalLink className="w-4 h-4 opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200" />
-                  </a>
+                  </div>
                 ) : (
-                  <Link 
+                  <div 
                     key={index}
-                    href={link.href}
-                    className="text-white/90 hover:text-white transition-colors"
+                    className="text-white/90 hover:text-white transition-colors cursor-pointer"
                   >
                     {link.text}
-                  </Link>
+                  </div>
                 )
               ))}
             </div>

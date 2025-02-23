@@ -38,7 +38,7 @@ export const MinimalHero = () => {
                           shadow-lg transform hover:rotate-2 transition-transform duration-300">
               <div className="relative w-full h-full">
               <Image 
-                src="/turtle.png"
+                src="/HeartFace.png"
                 alt="Hero"
                 width={400}
                 height={400}
