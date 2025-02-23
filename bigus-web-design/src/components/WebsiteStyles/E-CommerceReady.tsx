@@ -56,7 +56,7 @@ const E_CommerceReady = () => {
       price: 149.99,
       category: "Electronics",
       rating: 4.9,
-      image: "/keyboard.png"
+      image: "/Keyboard.png"
     },
     {
       id: 6,
