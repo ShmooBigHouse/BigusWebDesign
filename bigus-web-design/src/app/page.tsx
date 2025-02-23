@@ -11,6 +11,7 @@ import ProcessSection from '@/components/ProcessSection';
 import WebsiteStyles from '@/components/WebsiteStyles';
 import ComponentShowcase from '@/components/Showcase/ComponentShowcase';
 import ContactForm from '@/components/ContactForm';
+import FAQSection from '@/components/FAQSection';
 
 const HomePage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -181,6 +182,9 @@ const HomePage = () => {
 <div id="pricing">
   <Pricing />
 </div>
+
+{/* FAQ Section */}
+<FAQSection />
 
 {/* Contact Form */}
 <ContactForm />
