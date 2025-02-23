@@ -1,15 +1,20 @@
+"use client";
+
 import React, { useState, useRef } from 'react';
 import { ExternalLink } from 'lucide-react';
 import ModernBusiness from './WebsiteStyles/ModernBusiness';
 import CreativePortfolio from './WebsiteStyles/CreativePortfolio';
 import E_CommerceReady from './WebsiteStyles/E-CommerceReady';
+import { useRouter } from 'next/navigation';
 
 const WebsiteStyles = () => {
   const [activeStyle, setActiveStyle] = useState(0);
   const previewRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   const styles = [
     {
+      id: 'modern-business',
       name: "Modern Business",
       description: "Clean, professional design with bold typography and ample white space",
       features: ["Minimalist navigation", "Hero section with CTA", "Services grid", "Testimonials carousel"],
@@ -17,6 +22,7 @@ const WebsiteStyles = () => {
       component: <ModernBusiness />
     },
     {
+      id: 'creative-portfolio',
       name: "Creative Portfolio",
       description: "Dynamic, artistic layout perfect for showcasing creative work",
       features: ["Masonry gallery", "Animated transitions", "Project spotlights", "Contact form"],
@@ -24,6 +30,7 @@ const WebsiteStyles = () => {
       component: <CreativePortfolio />
     },
     {
+      id: 'e-commerce',
       name: "E-commerce Ready",
       description: "Conversion-optimized design for online stores",
       features: ["Product grid", "Shopping cart", "Category navigation", "Search functionality"],
@@ -34,15 +41,41 @@ const WebsiteStyles = () => {
 
   const style = styles[activeStyle];
 
+  const handleStyleSelect = () => {
+    // Store the selected style info in localStorage
+    const styleInfo = {
+      id: style.id,
+      name: style.name
+    };
+    localStorage.setItem('selectedStyle', JSON.stringify(styleInfo));
+    
+    // Store the plan info with style selection identifier
+    localStorage.setItem('selectedPlan', JSON.stringify({
+      id: 'premade-style',
+      title: `Premade Website - ${style.name} Style`,
+      price: 300,
+      features: [
+        `${style.name} template customization`,
+        "1 revision included",
+        "Basic SEO setup",
+        "Mobile-friendly design"
+      ],
+      selectedStyle: styleInfo // Include style information in the plan
+    }));
+
+    // Navigate to checkout
+    router.push('/checkout');
+  };
+
   return (
     <div id="website-styles" className="container mx-auto px-6 py-24">
       {/* Section Header */}
       <div className="text-center mb-16 relative">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 blur-3xl" />
         <div className="relative">
+          <p className="text-4xl md:text-5xl font-bold mb-6 text-white">Easily Use</p>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-white">Premade</span>{' '}
-            <span className="text-indigo-400">Website Styles</span>
+            <span className="text-indigo-400">Premade Website Styles</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             Choose from our curated collection of professional designs
@@ -58,7 +91,6 @@ const WebsiteStyles = () => {
               key={index}
               onClick={() => {
                 setActiveStyle(index);
-                // Scroll the preview to top when switching styles
                 if (previewRef.current) {
                   previewRef.current.scrollTo({ top: 0, behavior: 'smooth' });
                 }
@@ -93,9 +125,20 @@ const WebsiteStyles = () => {
           <div className="relative p-6">
             {/* Title and Description */}
             <div className="mb-8">
-              <h3 className={`text-3xl font-bold mb-4 bg-gradient-to-r ${style.color} text-transparent bg-clip-text`}>
-                {style.name}
-              </h3>
+              <div className="flex items-center gap-2 mb-4">
+                <h3 className={`text-3xl font-bold bg-gradient-to-r ${style.color} text-transparent bg-clip-text`}>
+                  {style.name}
+                </h3>
+                <button
+                  onClick={handleStyleSelect}
+                  className="px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 
+                            text-white rounded-lg text-base font-medium whitespace-nowrap
+                            hover:from-blue-600 hover:to-indigo-700 
+                            transition-colors shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.5)]"
+                >
+                  Select This Style
+                </button>
+              </div>
               <p className="text-gray-400 text-lg">{style.description}</p>
             </div>
 

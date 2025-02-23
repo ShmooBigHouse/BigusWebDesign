@@ -48,6 +48,13 @@ const HomePage = () => {
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </a>
                 <a
+                  href="#pricing"
+                  className="relative overflow-hidden px-8 py-4 rounded-lg text-lg font-semibold flex items-center group bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white transition-all hover:scale-105"
+                >
+                  Choose Your Plan
+                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                </a>
+                <a
                   href="#contact-form"
                   className="relative overflow-hidden px-8 py-4 rounded-lg text-lg font-semibold flex items-center group border-2 border-white/40 hover:border-white/60"
                 >
@@ -99,7 +106,9 @@ const HomePage = () => {
               <span className="text-indigo-400">Our Solutions</span>
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Expert development with a focus on quality and innovation
+              Expert 
+              <span className="text-red-500"> WEB </span>
+              development with a focus on quality and innovation
             </p>
           </div>
         </div>
@@ -138,51 +147,48 @@ const HomePage = () => {
         </div>
       </div>
 
-      {/* Component Showcase */}
-      <div id="components">
-        <ComponentShowcase />
-      </div>
+{/* Website Styles Showcase */}
+<WebsiteStyles />
 
-      {/* Website Styles Showcase */}
-      <WebsiteStyles />
+{/* Component Showcase */}
+<div id="components">
+  <ComponentShowcase />
+</div>
 
-      {/* Process Section */}
-      <div id="development-process">
-        <ProcessSection />
-      </div>
+{/* Process Section */}
+<div id="development-process">
+  <ProcessSection />
+</div>
 
-      {/* Pricing Section */}
-      <div id="pricing">
-        <Pricing />
-      </div>
+{/* CTA Section */}
+<div className="container mx-auto px-6 py-24">
+  <div className="relative overflow-hidden rounded-2xl p-12 text-center group">
+    {/* Enhanced gradient background */}
+    <div className="absolute inset-0 bg-gradient-to-br from-indigo-950 via-slate-900 to-blue-950" />
+    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 opacity-50 group-hover:opacity-75 transition-opacity duration-500" />
 
-      {/* CTA Section */}
-      <div className="container mx-auto px-6 py-24">
-        <div className="relative overflow-hidden rounded-2xl p-12 text-center group">
-          {/* Enhanced gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-indigo-950 via-slate-900 to-blue-950" />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 opacity-50 group-hover:opacity-75 transition-opacity duration-500" />
-
-          {/* Content */}
-          <div className="relative">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-white via-blue-400 to-white bg-clip-text text-transparent">Ready to Build Something Amazing?</h2>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Let&apos;s create a website that perfectly matches your vision and goals. Get started today with our affordable solutions.
-            </p>
-            <button className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 hover:shadow-[0_0_15px_rgba(59,130,246,0.5)]">
-              Start Your Project
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Contact Form */}
-      <ContactForm />
-
-      {/* Footer */}
-      <Footer />
+    {/* Content */}
+    <div className="relative">
+      <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-white via-blue-400 to-white bg-clip-text text-transparent">Ready to Build Something Amazing?</h2>
+      <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+      Let&apos;s create a website that perfectly matches your vision and goals. Get started today with our affordable solutions.
+      </p>
     </div>
-  );
+  </div>
+</div>
+
+{/* Pricing Section */}
+<div id="pricing">
+  <Pricing />
+</div>
+
+{/* Contact Form */}
+<ContactForm />
+
+{/* Footer */}
+<Footer />
+</div>
+);
 };
 
 export default HomePage;

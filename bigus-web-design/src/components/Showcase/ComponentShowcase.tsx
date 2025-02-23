@@ -149,8 +149,9 @@ const ComponentShowcase = () => {
           <div className="text-center mb-16 relative">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 blur-3xl" />
             <div className="relative">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-indigo-400">
-                Premium Components
+              <p className="text-4xl md:text-5xl font-bold mb-6">Choose from</p>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                <span className="text-indigo-400">Premium Components</span>
               </h2>
               <p className="text-xl text-gray-400 max-w-2xl mx-auto">
                 Discover our collection of carefully crafted components for your perfect website
