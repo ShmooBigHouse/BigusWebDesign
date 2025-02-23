@@ -29,10 +29,6 @@ const FAQSection = () => {
     {
       question: "What's included in the website monitoring service?",
       answer: "Our monitoring service includes 24/7 uptime monitoring, performance tracking, security scanning, regular backups, and monthly reports. We also provide instant alerts if any issues are detected."
-    },
-    {
-      question: "Can I update the website myself after it's launched?",
-      answer: "Yes! We build your site on user-friendly platforms and can provide basic training on content updates. For more complex changes, we offer ongoing support and maintenance services."
     }
   ];
 
