@@ -12,6 +12,7 @@ interface SelectedItem {
   id: string;
   title: string;
   price: number;
+  originalPrice?: number;
   features: string[];
 }
 
@@ -44,6 +45,8 @@ const CheckoutSection = () => {
   }, []);
   
   const monitoringPrice = isMonitoringEnabled ? 50 : 0;
+  const originalMonthlyPrice = 60; // Original monitoring price
+  const yearlyMonitoringPrice = 500;
   
   const calculateSubtotal = () => {
     if (!selectedItem) return 0;
@@ -108,45 +111,12 @@ const CheckoutSection = () => {
           </div>
         </div>
 
-        <div className="grid gap-8">
-          {/* Contact Information */}
-          <div className="bg-black/30 backdrop-blur-sm rounded-lg p-8 border border-white/10">
-            <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
-            <div className="grid gap-6 max-w-md">
-              <div>
-                <label htmlFor="name" className="block text-gray-300 mb-2">Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  value={contactInfo.name}
-                  onChange={(e) => setContactInfo(prev => ({ ...prev, name: e.target.value }))}
-                  className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white 
-                           focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-                  placeholder="Your name"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-gray-300 mb-2">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  value={contactInfo.email}
-                  onChange={(e) => setContactInfo(prev => ({ ...prev, email: e.target.value }))}
-                  className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white 
-                           focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-                  placeholder="your@email.com"
-                  required
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Website Monitoring Option */}
-          {selectedItem.id !== 'monitoring' && (
-            <div className="relative group">
+        {/* Website Monitoring Option - Centered under header */}
+        {selectedItem.id !== 'monitoring' && (
+          <div className="flex justify-center mb-8">
+            <div className="relative group md:w-72">
               <div className="absolute inset-0 bg-gradient-to-b from-red-500/20 to-red-800/20 rounded-xl blur-xl opacity-75 group-hover:opacity-100 transition-all duration-500" />
-              <div className="bg-gradient-to-b from-slate-800 to-slate-900 rounded-xl p-6 border-2 border-red-500 relative hover:-translate-y-1 transition-all duration-500">
+              <div className="bg-gradient-to-b from-slate-800 to-slate-900 rounded-xl p-6 border-2 border-red-500 relative">
                 <div className="flex items-center gap-4 mb-4">
                   <Activity className="w-8 h-8 text-red-400 group-hover:text-red-300 transition-colors duration-300" />
                   <div>
@@ -154,33 +124,39 @@ const CheckoutSection = () => {
                     <p className="text-sm text-gray-400">24/7 uptime monitoring</p>
                   </div>
                 </div>
-                <div className="flex items-center justify-between">
-                  <div className="space-y-2">
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-3xl font-bold text-red-400">$50</span>
-                      <span className="text-sm text-gray-400">/month</span>
-                    </div>
+                <div className="space-y-2 mb-4">
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-3xl font-bold text-red-400">$50</span>
+                    <span className="text-sm text-gray-400">/month</span>
+                    <span className="text-lg line-through text-gray-600">$60</span>
                   </div>
-                  <button
-                    onClick={() => setIsMonitoringEnabled(!isMonitoringEnabled)}
-                    className={`px-6 py-2 rounded-lg font-semibold transition-all transform
-                      ${isMonitoringEnabled 
-                        ? 'bg-red-500 text-white hover:bg-red-600' 
-                        : 'border-2 border-red-500 text-red-400 hover:bg-red-500/10'
-                      }`}
-                  >
-                    {isMonitoringEnabled ? 'Remove' : 'Add Monitoring'}
-                  </button>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-lg font-bold text-green-400">$500</span>
+                    <span className="text-sm text-gray-400">/year</span>
+                    <span className="text-xs text-green-400">(Save ~15%)</span>
+                  </div>
                 </div>
+                <button
+                  onClick={() => setIsMonitoringEnabled(!isMonitoringEnabled)}
+                  className={`w-full ${
+                    isMonitoringEnabled 
+                      ? 'bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700' 
+                      : 'border-2 border-red-500 hover:bg-red-500/10'
+                  } text-white px-4 py-2 rounded-lg font-semibold transition-all transform group-hover:shadow-[0_0_15px_rgba(239,68,68,0.5)]`}
+                >
+                  {isMonitoringEnabled ? 'Remove Monitoring' : 'Add Monitoring'}
+                </button>
               </div>
             </div>
-          )}
+          </div>
+        )}
 
+        <div className="grid gap-8">
           {/* Order Summary */}
           <div className="bg-black/30 backdrop-blur-sm rounded-lg p-8 border border-white/10">
             <h3 className="text-2xl font-bold text-white mb-6">Order Summary</h3>
             <div className="space-y-4">
-              {/* Selected Item */}
+              {/* Selected Item with Original Price */}
               <div className="flex justify-between text-gray-300 pb-4 border-b border-white/10">
                 <div>
                   <p className="font-medium">{selectedItem.title}</p>
@@ -190,7 +166,17 @@ const CheckoutSection = () => {
                     ))}
                   </div>
                 </div>
-                <span>${selectedItem.price}</span>
+                <div className="text-right">
+                  <div className="flex items-center gap-2 justify-end">
+                    <span className="text-[#39FF14] font-bold">${selectedItem.price}</span>
+                    {selectedItem.originalPrice && (
+                      <span className="text-lg line-through text-gray-600">${selectedItem.originalPrice}</span>
+                    )}
+                  </div>
+                  {selectedItem.originalPrice && (
+                    <span className="text-xs text-[#39FF14]">Save ${selectedItem.originalPrice - selectedItem.price}!</span>
+                  )}
+                </div>
               </div>
 
               {/* Monitoring */}
@@ -200,7 +186,13 @@ const CheckoutSection = () => {
                     <p className="font-medium">Website Monitoring</p>
                     <p className="text-sm text-gray-400">Professional monitoring package</p>
                   </div>
-                  <span>${monitoringPrice}/month</span>
+                  <div className="text-right">
+                    <div className="flex items-center gap-2">
+                      <span className="text-green-400">${monitoringPrice}/month</span>
+                      <span className="text-sm line-through text-gray-600">${originalMonthlyPrice}</span>
+                    </div>
+                    <p className="text-xs text-green-400">Save $120/year</p>
+                  </div>
                 </div>
               )}
 
@@ -208,19 +200,39 @@ const CheckoutSection = () => {
               <div className="pt-4 space-y-2">
                 <div className="flex justify-between text-gray-300">
                   <span>Subtotal</span>
-                  <span>${calculateSubtotal()}</span>
+                  <div className="text-right">
+                    <div className="flex items-center gap-2 justify-end">
+                      <span>${calculateSubtotal()}</span>
+                      {selectedItem.originalPrice && (
+                        <span className="text-sm line-through text-gray-600">
+                          ${selectedItem.originalPrice + (isMonitoringEnabled ? originalMonthlyPrice : 0)}
+                        </span>
+                      )}
+                    </div>
+                  </div>
                 </div>
                 {selectedItem.id !== 'monitoring' && isMonitoringEnabled && (
                   <div className="flex justify-between text-gray-300">
                     <span>Monthly Monitoring</span>
-                    <span>+ ${monitoringPrice}/month</span>
+                    <div className="text-right">
+                      <span>+ ${monitoringPrice}/month</span>
+                    </div>
                   </div>
                 )}
                 <div className="flex justify-between text-xl font-bold text-white pt-4 border-t border-white/10">
                   <span>
                     {selectedItem.id === 'monitoring' ? 'Total Due Today' : '50% Deposit Due Today'}
                   </span>
-                  <span>${calculateTotal()}</span>
+                  <div className="text-right">
+                    <div className="flex items-center gap-2 justify-end">
+                      <span>${calculateTotal()}</span>
+                      {selectedItem.originalPrice && (
+                        <span className="text-lg line-through text-gray-600">
+                          ${selectedItem.id === 'monitoring' ? selectedItem.originalPrice : (selectedItem.originalPrice + (isMonitoringEnabled ? originalMonthlyPrice : 0)) / 2}
+                        </span>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -329,29 +341,29 @@ const CheckoutSection = () => {
             <h3 className="text-2xl font-bold text-white mb-4">Add Website Monitoring?</h3>
             <p className="text-gray-300 mb-6">
               Would you like to add 24/7 website monitoring to ensure your site&apos;s optimal performance?
-              Only $50/month.
+              Only $50/month (save $10/month).
             </p>
-            <div className="flex gap-4">
-              <button
-                onClick={() => {
-                  setIsMonitoringEnabled(true);
-                  setShowMonitoringModal(false);
-                  proceedToPayment();
-                }}
-                className="flex-1 px-6 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
-              >
-                Yes, Add Monitoring
-              </button>
-              <button
-                onClick={() => {
-                  setShowMonitoringModal(false);
-                  proceedToPayment();
-                }}
-                className="flex-1 px-6 py-3 border border-gray-600 text-gray-300 rounded-lg hover:bg-gray-800 transition-colors"
-              >
-                No, Continue
-              </button>
-            </div>
+                          <div className="flex gap-4">
+                <button
+                  onClick={() => {
+                    setIsMonitoringEnabled(true);
+                    setShowMonitoringModal(false);
+                    proceedToPayment();
+                  }}
+                  className="flex-1 px-6 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
+                >
+                  Yes, Add Monitoring
+                </button>
+                <button
+                  onClick={() => {
+                    setShowMonitoringModal(false);
+                    proceedToPayment();
+                  }}
+                  className="flex-1 px-6 py-3 border border-gray-600 text-gray-300 rounded-lg hover:bg-gray-800 transition-colors"
+                >
+                  No, Continue
+                </button>
+              </div>
           </div>
         </div>
       )}

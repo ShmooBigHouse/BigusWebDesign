@@ -49,18 +49,19 @@ const WebsiteStyles = () => {
     };
     localStorage.setItem('selectedStyle', JSON.stringify(styleInfo));
     
-    // Store the plan info with style selection identifier
+    // Store the plan info with style selection identifier and original price
     localStorage.setItem('selectedPlan', JSON.stringify({
       id: 'premade-style',
       title: `Premade Website - ${style.name} Style`,
       price: 300,
+      originalPrice: 499,
       features: [
         `${style.name} template customization`,
         "1 revision included",
         "Basic SEO setup",
         "Mobile-friendly design"
       ],
-      selectedStyle: styleInfo // Include style information in the plan
+      selectedStyle: styleInfo
     }));
 
     // Navigate to checkout

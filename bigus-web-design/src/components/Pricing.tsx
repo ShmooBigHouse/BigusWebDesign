@@ -57,20 +57,17 @@ const Pricing = () => {
   ];
 
   const handlePlanSelect = (plan: typeof plans[0]) => {
-    // Store the selected plan info in localStorage
     localStorage.setItem('selectedPlan', JSON.stringify({
       id: plan.id,
       title: plan.title,
       price: plan.price,
+      originalPrice: plan.originalPrice,
       features: plan.features
     }));
-
-    // Navigate to checkout
     router.push('/checkout');
   };
 
   const handleMonitoringSelect = () => {
-    // Store the monitoring selection in localStorage
     localStorage.setItem('selectedPlan', JSON.stringify({
       id: 'monitoring',
       title: 'Website Monitoring',
@@ -82,8 +79,6 @@ const Pricing = () => {
         'Monthly reports'
       ]
     }));
-
-    // Navigate to checkout
     router.push('/checkout');
   };
 
@@ -103,10 +98,10 @@ const Pricing = () => {
             <p className="text-xl text-gray-400">Flexible options for every need</p>
           </div>
           
-          {/* Website Monitoring Box */}
+          {/* Website Monitoring Box - Updated with original price */}
           <div className="relative group md:w-72 mt-2">
             <div className="absolute inset-0 bg-gradient-to-b from-red-500/20 to-red-800/20 rounded-xl blur-xl opacity-75 group-hover:opacity-100 transition-all duration-500"></div>
-            <div className="bg-gradient-to-b from-slate-800 to-slate-900 rounded-xl p-6 border-2 border-red-500 relative hover:-translate-y-1 transition-all duration-500">
+            <div className="bg-gradient-to-b from-slate-800 to-slate-900 rounded-xl p-6 border-2 border-red-500 relative">
               <div className="flex items-center gap-4 mb-4">
                 <Activity className="w-8 h-8 text-red-400 group-hover:text-red-300 transition-colors duration-300" />
                 <div>
@@ -118,6 +113,7 @@ const Pricing = () => {
                 <div className="flex items-baseline gap-2">
                   <span className="text-3xl font-bold text-red-400">$50</span>
                   <span className="text-sm text-gray-400">/month</span>
+                  <span className="text-lg line-through text-gray-600">$60</span>
                 </div>
                 <div className="flex items-baseline gap-2">
                   <span className="text-lg font-bold text-green-400">$500</span>
