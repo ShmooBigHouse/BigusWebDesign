@@ -1,9 +1,9 @@
-// components/PlanBuilder/BusinessDetailsForm.tsx
 "use client";
 
 import React, { useState } from 'react';
-import { Upload, Globe, Mail, Phone, MapPin } from 'lucide-react';
+import { Upload, Globe, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
 import type { BusinessFormData, Page } from './types';
+import Image from 'next/image';
 
 interface BusinessDetailsFormProps {
   onSubmit: (details: BusinessFormData) => void;
@@ -247,7 +247,15 @@ const BusinessDetailsForm: React.FC<BusinessDetailsFormProps> = ({
                 <div className="flex items-center gap-8">
                   <div className="relative w-32 h-32 bg-white/5 border-2 border-dashed border-white/20 rounded-lg overflow-hidden">
                     {logoPreview ? (
-                      <img src={logoPreview} alt="Logo preview" className="w-full h-full object-contain" />
+                      <Image 
+                        src={logoPreview}
+                        alt="Logo preview"
+                        width={128}
+                        height={128}
+                        className="w-full h-full object-contain"
+                        priority
+                        unoptimized // For data URLs
+                      />
                     ) : (
                       <div className="absolute inset-0 flex items-center justify-center">
                         <Upload className="w-8 h-8 text-white/40" />
@@ -322,7 +330,7 @@ const BusinessDetailsForm: React.FC<BusinessDetailsFormProps> = ({
 
           {/* Submit Button */}
           <div className="flex justify-end">
-          <button
+            <button
               type="submit"
               className="px-8 py-4 bg-gradient-to-r from-blue-500 to-indigo-600 
                        hover:from-blue-600 hover:to-indigo-700 text-white 
@@ -331,9 +339,7 @@ const BusinessDetailsForm: React.FC<BusinessDetailsFormProps> = ({
                        flex items-center gap-2"
             >
               Continue to Checkout
-              <span className="inline-block transform group-hover:translate-x-1 transition-transform">
-                →
-              </span>
+              <ArrowRight className="w-5 h-5" />
             </button>
           </div>
         </form>

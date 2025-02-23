@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { AlertCircle, Clock, Shield, Activity } from 'lucide-react';
+import { Clock, Shield, Activity } from 'lucide-react';
 
 interface ContactInfo {
   name: string;
@@ -24,39 +24,35 @@ const CheckoutSection = () => {
     email: ''
   });
 
-  // Effect to load selected item from localStorage
   useEffect(() => {
-    const storedPlan = localStorage.getItem('selectedPlan');
-    const storedStyle = localStorage.getItem('selectedStyle');
-    
-    if (storedPlan) {
-      const planData = JSON.parse(storedPlan);
-      setSelectedItem(planData);
-      // If this is monitoring, don't show the monitoring option
-      if (planData.id === 'monitoring') {
-        setIsMonitoringEnabled(false);
+    try {
+      const storedPlan = localStorage.getItem('selectedPlan');
+      const storedStyle = localStorage.getItem('selectedStyle');
+      
+      if (storedPlan) {
+        const planData = JSON.parse(storedPlan) as SelectedItem;
+        setSelectedItem(planData);
+        if (planData.id === 'monitoring') {
+          setIsMonitoringEnabled(false);
+        }
+      } else if (storedStyle) {
+        setSelectedItem(JSON.parse(storedStyle) as SelectedItem);
       }
-    } else if (storedStyle) {
-      setSelectedItem(JSON.parse(storedStyle));
+    } catch (error) {
+      console.error('Error loading selected item:', error);
     }
   }, []);
   
-  // Calculate monitoring cost
   const monitoringPrice = isMonitoringEnabled ? 50 : 0;
   
-  // Calculate subtotal
   const calculateSubtotal = () => {
-    return (selectedItem?.price || 0) + (selectedItem?.id !== 'monitoring' ? monitoringPrice : 0);
+    if (!selectedItem) return 0;
+    return selectedItem.price + (selectedItem.id !== 'monitoring' ? monitoringPrice : 0);
   };
 
-  // Calculate payment due today
   const calculateTotal = () => {
-    // If it's monitoring, charge the full amount
-    if (selectedItem?.id === 'monitoring') {
-      return selectedItem.price;
-    }
-    // For websites, charge 50% deposit
-    return calculateSubtotal() / 2;
+    if (!selectedItem) return 0;
+    return selectedItem.id === 'monitoring' ? selectedItem.price : calculateSubtotal() / 2;
   };
 
   const handleCheckout = () => {
@@ -73,7 +69,8 @@ const CheckoutSection = () => {
   };
 
   const proceedToPayment = () => {
-    // Here you would integrate with your payment processor
+    if (!selectedItem) return;
+    
     console.log('Proceeding to payment with:', {
       item: selectedItem,
       monitoring: isMonitoringEnabled,
@@ -145,10 +142,10 @@ const CheckoutSection = () => {
             </div>
           </div>
 
-          {/* Website Monitoring Option - Only show if not purchasing monitoring */}
+          {/* Website Monitoring Option */}
           {selectedItem.id !== 'monitoring' && (
             <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-b from-red-500/20 to-red-800/20 rounded-xl blur-xl opacity-75 group-hover:opacity-100 transition-all duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-b from-red-500/20 to-red-800/20 rounded-xl blur-xl opacity-75 group-hover:opacity-100 transition-all duration-500" />
               <div className="bg-gradient-to-b from-slate-800 to-slate-900 rounded-xl p-6 border-2 border-red-500 relative hover:-translate-y-1 transition-all duration-500">
                 <div className="flex items-center gap-4 mb-4">
                   <Activity className="w-8 h-8 text-red-400 group-hover:text-red-300 transition-colors duration-300" />
@@ -196,7 +193,7 @@ const CheckoutSection = () => {
                 <span>${selectedItem.price}</span>
               </div>
 
-              {/* Monitoring - Only show if not purchasing monitoring */}
+              {/* Monitoring */}
               {selectedItem.id !== 'monitoring' && isMonitoringEnabled && (
                 <div className="flex justify-between text-gray-300 pb-4 border-b border-white/10">
                   <div>
@@ -307,7 +304,7 @@ const CheckoutSection = () => {
             <div className="space-y-6">
               <p className="text-sm text-gray-400">
                 By proceeding, you agree to our terms of service and acknowledge our privacy policy.
-                {selectedItem.id !== 'monitoring' && ' The development process will begin once the initial payment is received.'}
+                {selectedItem.id !== 'monitoring' && ` The development process will begin once the initial payment is received.`}
               </p>
               
               <button
@@ -325,13 +322,13 @@ const CheckoutSection = () => {
         </div>
       </div>
 
-      {/* Monitoring Confirmation Modal - Only show for website purchases */}
+      {/* Monitoring Confirmation Modal */}
       {showMonitoringModal && selectedItem.id !== 'monitoring' && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
           <div className="bg-slate-800 p-8 rounded-xl border border-white/10 max-w-md mx-4">
             <h3 className="text-2xl font-bold text-white mb-4">Add Website Monitoring?</h3>
             <p className="text-gray-300 mb-6">
-              Would you like to add 24/7 website monitoring to ensure your site's optimal performance?
+              Would you like to add 24/7 website monitoring to ensure your site&apos;s optimal performance?
               Only $50/month.
             </p>
             <div className="flex gap-4">
