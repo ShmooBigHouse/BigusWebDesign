@@ -54,11 +54,6 @@ const CheckoutSection = () => {
   };
 
   const handleCheckout = () => {
-    if (!contactInfo.name || !contactInfo.email) {
-      alert('Please provide your name and email before proceeding.');
-      return;
-    }
-
     if (!isMonitoringEnabled && selectedItem?.id !== 'monitoring') {
       setShowMonitoringModal(true);
     } else {
