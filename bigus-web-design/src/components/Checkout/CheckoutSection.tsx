@@ -3,11 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import { Clock, Shield, Activity } from 'lucide-react';
 
-interface ContactInfo {
-  name: string;
-  email: string;
-}
-
 interface SelectedItem {
   id: string;
   title: string;
@@ -68,8 +63,7 @@ const CheckoutSection = () => {
       item: selectedItem,
       monitoring: isMonitoringEnabled,
       monitoringPrice,
-      total: calculateTotal(),
-      contactInfo
+      total: calculateTotal()
     });
   };
 
