@@ -20,10 +20,6 @@ const CheckoutSection = () => {
   const [showMonitoringModal, setShowMonitoringModal] = useState(false);
   const [isMonitoringEnabled, setIsMonitoringEnabled] = useState(false);
   const [selectedItem, setSelectedItem] = useState<SelectedItem | null>(null);
-  const [contactInfo, _setContactInfo] = useState<ContactInfo>({
-    name: '',
-    email: ''
-  });
 
   useEffect(() => {
     try {
