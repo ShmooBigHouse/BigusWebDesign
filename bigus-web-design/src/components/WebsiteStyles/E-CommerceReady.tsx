@@ -24,7 +24,7 @@ const E_CommerceReady = () => {
       price: 299.99,
       category: "Electronics",
       rating: 4.8,
-      image: "/headphones.png"
+      image: "/Headphones.png"
     },
     {
       id: 2,
@@ -32,7 +32,7 @@ const E_CommerceReady = () => {
       price: 199.99,
       category: "Accessories",
       rating: 4.6,
-      image: "/watch.png"
+      image: "/SmartWatch.png"
     },
     {
       id: 3,
@@ -40,7 +40,7 @@ const E_CommerceReady = () => {
       price: 159.99,
       category: "Electronics",
       rating: 4.7,
-      image: "/speaker.png"
+      image: "/WirelessSpeaker.png"
     },
     {
       id: 4,
@@ -48,7 +48,7 @@ const E_CommerceReady = () => {
       price: 79.99,
       category: "Accessories",
       rating: 4.5,
-      image: "/stand.png"
+      image: "/ComputerStand.png"
     },
     {
       id: 5,
@@ -64,7 +64,7 @@ const E_CommerceReady = () => {
       price: 89.99,
       category: "Electronics",
       rating: 4.7,
-      image: "/mouse.png"
+      image: "/Mouse.png"
     }
   ];
 

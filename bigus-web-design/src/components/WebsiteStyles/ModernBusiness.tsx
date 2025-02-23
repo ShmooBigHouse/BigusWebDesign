@@ -210,8 +210,8 @@ const ModernBusiness = () => {
               <div className="aspect-square w-full max-w-md mx-auto bg-yellow-300 rounded-3xl p-8 shadow-lg">
                 <div className="relative w-full h-full">
                   <Image 
-                    src="/businesswoman.png"
-                    alt="Business Professional"
+                    src="/lion.png"
+                    alt="lion logo"
                     width={400}
                     height={400}
                     className="w-full h-full object-cover rounded-2xl"

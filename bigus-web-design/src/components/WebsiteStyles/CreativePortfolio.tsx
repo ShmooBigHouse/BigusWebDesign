@@ -54,19 +54,19 @@ const ArtGallery: React.FC = () => {
     {
       title: "Digital Dreams",
       type: "Digital Print",
-      image: "/code.png",
+      image: "/DigitalDreams.png",
       size: "30\" x 40\""
     },
     {
       title: "Cosmic Dance",
       type: "Oil on Canvas",
-      image: "/css.png",
+      image: "/CosmicDance.png",
       size: "48\" x 60\""
     },
     {
       title: "Modern Expression",
       type: "Mixed Media",
-      image: "/ai.png",
+      image: "/ModernExpression.png",
       size: "36\" x 36\""
     }
   ];
