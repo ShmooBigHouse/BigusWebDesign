@@ -1,32 +1,28 @@
 // components/Footer.tsx
 import React from 'react';
 import Link from 'next/link';
-import { Mail, MapPin, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, MapPin, Activity, Heart } from 'lucide-react';
 
 const Footer = () => {
   return (
     <footer className="bg-slate-900 border-t border-white/20 relative">
       {/* Shine effect */}
-    <div className="absolute top-0 left-0 right-0 h-[2px] overflow-hidden">
-    <div className="animate-shine"></div>
-    </div>
+      <div className="absolute top-0 left-0 right-0 h-[2px] overflow-hidden">
+        <div className="animate-shine"></div>
+      </div>
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Company Info */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold text-red-500">Bigus Web Design</h3>
-            <p className="text-white">Crafting personalized digital experiences.</p>
-            <div className="flex space-x-4">
-              <Link href="https://twitter.com" className="text-gray-400 hover:text-blue-400 transition-colors">
-                <Twitter size={20} />
-              </Link>
-              <Link href="https://linkedin.com" className="text-gray-400 hover:text-blue-400 transition-colors">
-                <Linkedin size={20} />
-              </Link>
-              <Link href="https://github.com" className="text-gray-400 hover:text-blue-400 transition-colors">
-                <Github size={20} />
-              </Link>
+            <div className="flex items-center gap-2">
+              <h3 className="text-2xl font-bold text-red-500">Bigus Web Design</h3>
+              <div className="flex items-center gap-1">
+                <Activity className="w-5 h-5 text-red-500" />
+                <Heart className="w-5 h-5 text-red-500 animate-pulse" />
+                <Activity className="w-5 h-5 text-red-500" />
+              </div>
             </div>
+            <p className="text-white">Crafting personalized digital experiences.</p>
           </div>
 
           {/* Quick Links */}
