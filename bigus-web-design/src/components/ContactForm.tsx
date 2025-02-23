@@ -198,11 +198,15 @@ const ContactForm: React.FC = () => {
 
               {/* Submit Button */}
               <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.href = 'mailto:shmoo@proton.me';
+                }}
                 type="submit"
                 className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-8 py-4 
-                         rounded-lg font-semibold hover:from-blue-600 hover:to-indigo-700 
-                         transition-all transform hover:scale-[1.01] hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] 
-                         flex items-center justify-center gap-2"
+                        rounded-lg font-semibold hover:from-blue-600 hover:to-indigo-700 
+                        transition-all transform hover:scale-[1.01] hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] 
+                        flex items-center justify-center gap-2"
               >
                 <MessageSquare className="w-5 h-5" />
                 <span>Schedule Consultation</span>
