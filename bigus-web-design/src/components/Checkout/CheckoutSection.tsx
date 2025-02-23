@@ -20,7 +20,7 @@ const CheckoutSection = () => {
   const [showMonitoringModal, setShowMonitoringModal] = useState(false);
   const [isMonitoringEnabled, setIsMonitoringEnabled] = useState(false);
   const [selectedItem, setSelectedItem] = useState<SelectedItem | null>(null);
-  const [contactInfo, setContactInfo] = useState<ContactInfo>({
+  const [contactInfo, _setContactInfo] = useState<ContactInfo>({
     name: '',
     email: ''
   });
@@ -45,8 +45,7 @@ const CheckoutSection = () => {
   }, []);
   
   const monitoringPrice = isMonitoringEnabled ? 50 : 0;
-  const originalMonthlyPrice = 60; // Original monitoring price
-  const yearlyMonitoringPrice = 500;
+  const originalMonthlyPrice = 60;
   
   const calculateSubtotal = () => {
     if (!selectedItem) return 0;
