@@ -405,7 +405,7 @@ const CheckoutSection = () => {
           <div className="bg-slate-800 p-8 rounded-xl border border-white/10 max-w-md mx-4">
             <h3 className="text-2xl font-bold text-white mb-4">Add Website Monitoring?</h3>
             <p className="text-gray-300 mb-6">
-              Would you like to add 24/7 website monitoring to ensure your site's optimal performance?
+              Would you like to add 24/7 website monitoring to ensure your site&apos;s optimal performance?
             </p>
             
             {/* Monitoring Type Selection */}

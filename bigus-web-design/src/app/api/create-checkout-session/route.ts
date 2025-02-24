@@ -10,7 +10,7 @@ export async function POST(req: Request) {
     const body = await req.json();
     const { packageType, withMonitoring, monitoringType } = body;
 
-    let line_items = [];
+    const line_items = [];
     
     // Add the main package
     const packagePrices = {
