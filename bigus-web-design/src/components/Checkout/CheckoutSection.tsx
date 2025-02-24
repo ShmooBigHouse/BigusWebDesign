@@ -1,7 +1,5 @@
 "use client";
 
-"use client";
-
 import React, { useState, useEffect } from 'react';
 import { Clock, Shield, Activity } from 'lucide-react';
 import { loadStripe } from '@stripe/stripe-js';
@@ -18,7 +16,6 @@ interface SelectedItem {
 }
 
 const CheckoutSection = () => {
-  const [showMonitoringModal, setShowMonitoringModal] = useState(false);
   const [isMonitoringEnabled, setIsMonitoringEnabled] = useState(false);
   const [selectedItem, setSelectedItem] = useState<SelectedItem | null>(null);
   const [monitoringType, setMonitoringType] = useState<'monthly' | 'yearly'>('monthly');
@@ -54,14 +51,6 @@ const CheckoutSection = () => {
   const calculateTotal = () => {
     if (!selectedItem) return 0;
     return selectedItem.id === 'monitoring' ? selectedItem.price : calculateSubtotal() / 2;
-  };
-
-  const handleCheckout = () => {
-    if (!isMonitoringEnabled && selectedItem?.id !== 'monitoring') {
-      setShowMonitoringModal(true);
-    } else {
-      proceedToPayment();
-    }
   };
 
   const proceedToPayment = async () => {
@@ -381,7 +370,7 @@ const CheckoutSection = () => {
             </p>
             
             <button
-              onClick={handleCheckout}
+              onClick={proceedToPayment}
               disabled={isLoading}
               className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 
                        hover:from-blue-600 hover:to-indigo-700 text-white 
@@ -402,84 +391,6 @@ const CheckoutSection = () => {
           </div>
         </div>
       </div>
-
-      {/* Monitoring Confirmation Modal */}
-      {showMonitoringModal && selectedItem?.id !== 'monitoring' && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
-          <div className="bg-slate-800 p-8 rounded-xl border border-white/10 max-w-md mx-4">
-            <h3 className="text-2xl font-bold text-white mb-4">Add Website Monitoring?</h3>
-            <p className="text-gray-300 mb-6">
-              Would you like to add 24/7 website monitoring to ensure your site&apos;s optimal performance?
-            </p>
-            
-            {/* Monitoring Type Selection */}
-            <div className="space-y-4 mb-6">
-              <div className="flex flex-col gap-4">
-                <button
-                  onClick={() => setMonitoringType('monthly')}
-                  className={`p-4 rounded-lg text-left transition-colors relative border-2 ${
-                    monitoringType === 'monthly'
-                      ? 'bg-slate-700 border-blue-500/50'
-                      : 'bg-slate-700/50 border-transparent hover:bg-slate-700'
-                  }`}
-                >
-                  <span className="text-white font-medium">Single Month</span>
-                  <p className="text-sm text-gray-400">$60 one-time payment</p>
-                </button>
-                <button
-                  onClick={() => setMonitoringType('yearly')}
-                  className={`p-4 rounded-lg text-left transition-colors relative border-2 ${
-                    monitoringType === 'yearly'
-                      ? 'bg-slate-700 border-blue-500/50'
-                      : 'bg-slate-700/50 border-transparent hover:bg-slate-700'
-                  }`}
-                >
-                  <span className="text-white font-medium">Yearly Plan</span>
-                  <p className="text-sm text-gray-400">$50/month (Save $10/month with yearly commitment)</p>
-                </button>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <button
-                onClick={() => {
-                  setIsMonitoringEnabled(true);
-                  setShowMonitoringModal(false);
-                  proceedToPayment();
-                }}
-                disabled={isLoading}
-                className="flex-1 px-6 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isLoading ? (
-                  <div className="flex items-center justify-center gap-2">
-                    <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-                    <span>Processing...</span>
-                  </div>
-                ) : (
-                  'Yes, Add Monitoring'
-                )}
-              </button>
-              <button
-                onClick={() => {
-                  setShowMonitoringModal(false);
-                  proceedToPayment();
-                }}
-                disabled={isLoading}
-                className="flex-1 px-6 py-3 border border-gray-600 text-gray-300 rounded-lg hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isLoading ? (
-                  <div className="flex items-center justify-center gap-2">
-                    <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-                    <span>Processing...</span>
-                  </div>
-                ) : (
-                  'No, Continue'
-                )}
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
