@@ -369,8 +369,8 @@ const CheckoutSection = () => {
             </div>
           </div>
 
-          {/* Terms and Proceed Button */}
-          <div className="space-y-6">
+           {/* Terms and Proceed Button */}
+           <div className="space-y-6">
             <p className="text-sm text-gray-400">
               By proceeding, you agree to our terms of service and acknowledge our privacy policy.
               {selectedItem?.id !== 'monitoring' && ` The development process will begin once the initial payment is received.`}
@@ -421,8 +421,8 @@ const CheckoutSection = () => {
                     className="text-blue-500"
                   />
                   <div>
-                    <span className="text-white font-medium">Monthly Billing</span>
-                    <p className="text-sm text-gray-400">$50/month (Save $10/month)</p>
+                    <span className="text-white font-medium">Single Month</span>
+                    <p className="text-sm text-gray-400">$60 one-time payment</p>
                   </div>
                 </label>
                 <label className="flex items-center gap-3 p-4 bg-slate-700 rounded-lg cursor-pointer">
@@ -436,7 +436,7 @@ const CheckoutSection = () => {
                   />
                   <div>
                     <span className="text-white font-medium">Yearly Billing</span>
-                    <p className="text-sm text-gray-400">$500/year (Save $100/year)</p>
+                    <p className="text-sm text-gray-400">$50/month (Save $100/year)</p>
                   </div>
                 </label>
               </div>
