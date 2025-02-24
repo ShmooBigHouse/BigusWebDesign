@@ -415,44 +415,28 @@ const CheckoutSection = () => {
             {/* Monitoring Type Selection */}
             <div className="space-y-4 mb-6">
               <div className="flex flex-col gap-4">
-                <label className="flex items-center gap-3 p-4 bg-slate-700/50 rounded-lg cursor-pointer hover:bg-slate-700 transition-colors relative border border-transparent">
-                  <div className="flex items-center gap-3 relative z-10 w-full">
-                    <input
-                      type="radio"
-                      name="monitoringType"
-                      value="monthly"
-                      checked={monitoringType === 'monthly'}
-                      onChange={() => setMonitoringType('monthly')}
-                      className="w-4 h-4 text-blue-500 border-gray-600 focus:ring-blue-500"
-                    />
-                    <div>
-                      <span className="text-white font-medium">Single Month</span>
-                      <p className="text-sm text-gray-400">$60 one-time payment</p>
-                    </div>
-                  </div>
-                  {monitoringType === 'monthly' && (
-                    <div className="absolute inset-0 border-2 border-blue-500/50 rounded-lg"></div>
-                  )}
-                </label>
-                <label className="flex items-center gap-3 p-4 bg-slate-700/50 rounded-lg cursor-pointer hover:bg-slate-700 transition-colors relative border border-transparent">
-                  <div className="flex items-center gap-3 relative z-10 w-full">
-                    <input
-                      type="radio"
-                      name="monitoringType"
-                      value="yearly"
-                      checked={monitoringType === 'yearly'}
-                      onChange={() => setMonitoringType('yearly')}
-                      className="w-4 h-4 text-blue-500 border-gray-600 focus:ring-blue-500"
-                    />
-                    <div>
-                      <span className="text-white font-medium">Yearly Plan</span>
-                      <p className="text-sm text-gray-400">$50/month (Save $10/month with yearly commitment)</p>
-                    </div>
-                  </div>
-                  {monitoringType === 'yearly' && (
-                    <div className="absolute inset-0 border-2 border-blue-500/50 rounded-lg"></div>
-                  )}
-                </label>
+                <button
+                  onClick={() => setMonitoringType('monthly')}
+                  className={`p-4 rounded-lg text-left transition-colors relative border-2 ${
+                    monitoringType === 'monthly'
+                      ? 'bg-slate-700 border-blue-500/50'
+                      : 'bg-slate-700/50 border-transparent hover:bg-slate-700'
+                  }`}
+                >
+                  <span className="text-white font-medium">Single Month</span>
+                  <p className="text-sm text-gray-400">$60 one-time payment</p>
+                </button>
+                <button
+                  onClick={() => setMonitoringType('yearly')}
+                  className={`p-4 rounded-lg text-left transition-colors relative border-2 ${
+                    monitoringType === 'yearly'
+                      ? 'bg-slate-700 border-blue-500/50'
+                      : 'bg-slate-700/50 border-transparent hover:bg-slate-700'
+                  }`}
+                >
+                  <span className="text-white font-medium">Yearly Plan</span>
+                  <p className="text-sm text-gray-400">$50/month (Save $10/month with yearly commitment)</p>
+                </button>
               </div>
             </div>
 
