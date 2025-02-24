@@ -10,7 +10,7 @@ export async function POST(req: Request) {
     const body = await req.json();
     const { packageType, withMonitoring, monitoringType } = body;
 
-    const line_items = [];
+    const line_items: Stripe.Checkout.SessionCreateParams.LineItem[] = [];
     
     // Add the main package
     const packagePrices = {
@@ -27,7 +27,7 @@ export async function POST(req: Request) {
           name: `${packageType.charAt(0).toUpperCase() + packageType.slice(1)} Website Package`,
           description: '50% deposit for website development',
         },
-        unit_amount: packagePrices[packageType as keyof typeof packagePrices] * 50, // convert to cents
+        unit_amount: packagePrices[packageType as keyof typeof packagePrices] * 50,
       },
       quantity: 1,
     });
@@ -43,7 +43,7 @@ export async function POST(req: Request) {
               name: 'Website Monitoring - Single Month',
               description: 'One month of website monitoring service',
             },
-            unit_amount: 6000, // $60 in cents
+            unit_amount: 6000,
           },
           quantity: 1,
         });
@@ -56,9 +56,9 @@ export async function POST(req: Request) {
               name: 'Website Monitoring - Monthly',
               description: 'Monthly website monitoring service (Yearly commitment)',
             },
-            unit_amount: 5000, // $50 in cents
+            unit_amount: 5000,
             recurring: {
-              interval: 'month',
+              interval: 'month' as const,
             },
           },
           quantity: 1,
@@ -68,7 +68,6 @@ export async function POST(req: Request) {
 
     // Create Checkout Session with appropriate mode
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ['card'],
       line_items,
       mode: withMonitoring && monitoringType === 'yearly' ? 'subscription' : 'payment',
       success_url: `${process.env.NEXT_PUBLIC_DOMAIN}/success`,
