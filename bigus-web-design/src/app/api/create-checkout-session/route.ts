@@ -1,12 +1,20 @@
 import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+if (!process.env.STRIPE_SECRET_KEY) {
+  throw new Error('STRIPE_SECRET_KEY is not defined');
+}
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2025-01-27.acacia',
 });
 
 export async function POST(req: Request) {
   try {
+    if (!process.env.NEXT_PUBLIC_DOMAIN) {
+      throw new Error('NEXT_PUBLIC_DOMAIN is not defined');
+    }
+
     const body = await req.json();
     const { packageType, withMonitoring, monitoringType } = body;
 
