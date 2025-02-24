@@ -121,7 +121,7 @@ const WebsiteStyles = () => {
           ))}
         </div>
 
-        {/* Preview Area - Right Side */}
+        {/* Preview Area - Right Side adsf*/}
         <div className="flex-1 bg-gradient-to-br from-purple-900/30 to-indigo-900/30 backdrop-blur-sm rounded-lg border-2 border-purple-500/20">
           <div className="relative p-6">
             {/* Title and Description */}
