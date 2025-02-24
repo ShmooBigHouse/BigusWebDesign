@@ -142,15 +142,16 @@ const CheckoutSection = () => {
                   <p className="text-sm text-gray-400">24/7 uptime monitoring</p>
                 </div>
               </div>
+
               <div className="space-y-3 mb-4">
-                <label className="flex items-center gap-3 p-3 bg-slate-700/50 rounded-lg cursor-pointer">
+                <label className="flex items-center gap-3 p-3 bg-slate-700/50 rounded-lg cursor-pointer hover:bg-slate-700 transition-colors">
                   <input
                     type="radio"
                     name="monitoringType"
                     value="monthly"
                     checked={monitoringType === 'monthly'}
                     onChange={() => setMonitoringType('monthly')}
-                    className="text-red-500"
+                    className="w-4 h-4 text-red-500 border-gray-600 focus:ring-red-500"
                   />
                   <div>
                     <span className="text-white">Single Month</span>
@@ -160,14 +161,14 @@ const CheckoutSection = () => {
                     </div>
                   </div>
                 </label>
-                <label className="flex items-center gap-3 p-3 bg-slate-700/50 rounded-lg cursor-pointer">
+                <label className="flex items-center gap-3 p-3 bg-slate-700/50 rounded-lg cursor-pointer hover:bg-slate-700 transition-colors">
                   <input
                     type="radio"
                     name="monitoringType"
                     value="yearly"
                     checked={monitoringType === 'yearly'}
                     onChange={() => setMonitoringType('yearly')}
-                    className="text-red-500"
+                    className="w-4 h-4 text-red-500 border-gray-600 focus:ring-red-500"
                   />
                   <div>
                     <span className="text-white">Yearly Plan</span>
@@ -179,6 +180,7 @@ const CheckoutSection = () => {
                   </div>
                 </label>
               </div>
+
               <button
                 onClick={() => setIsMonitoringEnabled(!isMonitoringEnabled)}
                 className={`w-full ${
@@ -343,10 +345,12 @@ const CheckoutSection = () => {
                       </div>
                       <div>
                         <h4 className="text-white font-medium mb-1">
-                          {monitoringType === 'yearly' ? 'Yearly' : 'Monthly'} Monitoring
+                          {monitoringType === 'monthly' ? 'One-time Monitoring' : 'Monthly Monitoring'}
                         </h4>
                         <p className="text-gray-400 text-sm">
-                          ${monitoringType === 'yearly' ? '500/year' : '50/month'}, starting after website launch
+                          {monitoringType === 'monthly' 
+                            ? '$60 one-time payment' 
+                            : '$50/month, starting after website launch'}
                         </p>
                       </div>
                     </div>
@@ -369,8 +373,8 @@ const CheckoutSection = () => {
             </div>
           </div>
 
-           {/* Terms and Proceed Button */}
-           <div className="space-y-6">
+          {/* Terms and Proceed Button */}
+          <div className="space-y-6">
             <p className="text-sm text-gray-400">
               By proceeding, you agree to our terms of service and acknowledge our privacy policy.
               {selectedItem?.id !== 'monitoring' && ` The development process will begin once the initial payment is received.`}
@@ -411,33 +415,43 @@ const CheckoutSection = () => {
             {/* Monitoring Type Selection */}
             <div className="space-y-4 mb-6">
               <div className="flex flex-col gap-4">
-                <label className="flex items-center gap-3 p-4 bg-slate-700 rounded-lg cursor-pointer">
-                  <input
-                    type="radio"
-                    name="monitoringType"
-                    value="monthly"
-                    checked={monitoringType === 'monthly'}
-                    onChange={() => setMonitoringType('monthly')}
-                    className="text-blue-500"
-                  />
-                  <div>
-                    <span className="text-white font-medium">Single Month</span>
-                    <p className="text-sm text-gray-400">$60 one-time payment</p>
+                <label className="flex items-center gap-3 p-4 bg-slate-700/50 rounded-lg cursor-pointer hover:bg-slate-700 transition-colors relative border border-transparent">
+                  <div className="flex items-center gap-3 relative z-10 w-full">
+                    <input
+                      type="radio"
+                      name="monitoringType"
+                      value="monthly"
+                      checked={monitoringType === 'monthly'}
+                      onChange={() => setMonitoringType('monthly')}
+                      className="w-4 h-4 text-blue-500 border-gray-600 focus:ring-blue-500"
+                    />
+                    <div>
+                      <span className="text-white font-medium">Single Month</span>
+                      <p className="text-sm text-gray-400">$60 one-time payment</p>
+                    </div>
                   </div>
+                  {monitoringType === 'monthly' && (
+                    <div className="absolute inset-0 border-2 border-blue-500/50 rounded-lg"></div>
+                  )}
                 </label>
-                <label className="flex items-center gap-3 p-4 bg-slate-700 rounded-lg cursor-pointer">
-                  <input
-                    type="radio"
-                    name="monitoringType"
-                    value="yearly"
-                    checked={monitoringType === 'yearly'}
-                    onChange={() => setMonitoringType('yearly')}
-                    className="text-blue-500"
-                  />
-                  <div>
-                    <span className="text-white font-medium">Yearly Billing</span>
-                    <p className="text-sm text-gray-400">$50/month (Save $100/year)</p>
+                <label className="flex items-center gap-3 p-4 bg-slate-700/50 rounded-lg cursor-pointer hover:bg-slate-700 transition-colors relative border border-transparent">
+                  <div className="flex items-center gap-3 relative z-10 w-full">
+                    <input
+                      type="radio"
+                      name="monitoringType"
+                      value="yearly"
+                      checked={monitoringType === 'yearly'}
+                      onChange={() => setMonitoringType('yearly')}
+                      className="w-4 h-4 text-blue-500 border-gray-600 focus:ring-blue-500"
+                    />
+                    <div>
+                      <span className="text-white font-medium">Yearly Plan</span>
+                      <p className="text-sm text-gray-400">$50/month (Save $10/month with yearly commitment)</p>
+                    </div>
                   </div>
+                  {monitoringType === 'yearly' && (
+                    <div className="absolute inset-0 border-2 border-blue-500/50 rounded-lg"></div>
+                  )}
                 </label>
               </div>
             </div>
